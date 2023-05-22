@@ -3,7 +3,9 @@ require_once 'authentication.php';
 require_once 'classes/tools.php';
 $tool = new tools();
 
-// POSTS ---------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------
+// POSTS
+// ----------------------------------------------------------------------------------------------------------
 // ADD Post
 if(isset($_POST['post_add'])):
 
@@ -106,60 +108,69 @@ if(isset($_POST['post_update'])):
     $meta_keyword		= $mysqli -> real_escape_string($_POST['meta_keyword']);
 	$static_page		= $_POST['static_page'];
 	$status				= $_POST['status'];
-	$old_filename		= $_POST['old_image'];
 	$image_size			= $_POST['image_size'];
 	$language			= $_POST['language'];
 
 	// Handling image files
-	$update_filename ="";
-	$image = $_FILES['image']['name'];
-	echo"<pre>
-	var_dump($_POST);
+	$update_filename 	= "";
+	$old_filename		= $_POST['old_image'];
+	$image 				= $_FILES['image']['name'];
 	
 	if(!empty($_FILES['image']['name'])):
-		
-		$image = $_FILES['image']['name'];
 		
 		if($image != NULL):
 		
 			// Rename this Image
 			$image_extension = pathinfo($image, PATHINFO_EXTENSION);
 			$filename = time() . '.' . $image_extension;
-
 			$update_filename = $filename;
-		else:
-			$update_filename = $old_filename;
-		endif;
-    
-		$post_query_run = "UPDATE `allsites`.`posts` SET `category_id` = '$category_id', 
-		`name` = '$name', `slug` = '$slug', `small_description` = '$small_description', 
-		`description` = '$description', `image` = '$update_filename', `image_size` = '$image_size', 
-		`meta_title` = '$meta_title', `meta_description` = '$meta_description', `meta_keyword` = '$meta_keyword', 
-		`static_page` = '$static_page', `status` = '$status', `language` = '$language' 
-		WHERE id = '$post_id'";
 		
-		if ($mysqli -> query($post_query_run) === TRUE):	 
-			if($image != NULL):				
-				if(file_exists('../libraries/posts/' . $old_filename)):
-					unlink('../libraries/posts/' . $old_filename);
-				endif;				
-				move_uploaded_file($_FILES['image']['tmp_name'], '../libraries/posts/' . $update_filename);				
-			Endif;
-			
-			//Registered Succefully
-			$_SESSION['message'] = "Post Updated Successfully.";
-			header("Location: post-edit.php?code=". $tool->base64url_encode($post_id));
-			exit(0);
-		else:			
-			//Registered faillury
-			$_SESSION['message'] = "Update failed, check the entered data.";
-			header("Location: post-edit.php?code=". $tool->base64url_encode($post_id));
-			exit(0);
 		endif;
+
+	else:
+
+		$update_filename = $old_filename;
+		
 	endif;
+
+	$post_query_run = "UPDATE `allsites`.`posts` SET `category_id` = '$category_id', 
+	`name` = '$name', `slug` = '$slug', `small_description` = '$small_description', 
+	`description` = '$description', `image` = '$update_filename', `image_size` = '$image_size', 
+	`meta_title` = '$meta_title', `meta_description` = '$meta_description', `meta_keyword` = '$meta_keyword', 
+	`static_page` = '$static_page', `status` = '$status', `language` = '$language' 
+	WHERE id = '$post_id'";
+
+	if ($mysqli -> query($post_query_run) === TRUE):
+
+		if($image != NULL):	
+
+			if(file_exists('../libraries/posts/' . $old_filename)):
+				unlink('../libraries/posts/' . $old_filename);
+			endif;		
+
+			move_uploaded_file($_FILES['image']['tmp_name'], '../libraries/posts/' . $update_filename);	
+
+		Endif;
+		
+		//Registered Succefully
+		$_SESSION['message'] = "Post Updated Successfully.";
+		header("Location: post-edit.php?code=". $tool->base64url_encode($post_id));
+		exit(0);
+
+	else:	
+
+		//Registered faillury
+		$_SESSION['message'] = "Update failed, check the entered data.";
+		header("Location: post-edit.php?code=". $tool->base64url_encode($post_id));
+		exit(0);
+
+	endif;
+	
 endif;
 
-// CATEGORIES ---------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------
+// CATEGORIES 
+// ----------------------------------------------------------------------------------------------------------
 // ADD Category
 if(isset($_POST['AddCategory'])):
 
@@ -252,7 +263,9 @@ if(isset($_POST['category_update'])):
 
 endif;
 
-// USERS --------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------
+// USERS
+// ----------------------------------------------------------------------------------------------------------
 // ADD User
 if(isset($_POST['AddUser'])):
 
