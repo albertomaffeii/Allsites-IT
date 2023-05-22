@@ -1,0 +1,51 @@
+RewriteEngine on
+
+# Redirect trailing slashes if not a folder...
+# Redirecionar barras à direita, se não for uma pasta...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$ 
+RewriteRule ^ %1 [L,R=301]
+
+#Remove the .php extension
+# Remove extenção php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+# Remove the .html extension
+# Remove extenção html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html
+
+RewriteRule ^category/([a-zA-Z0-9-]+) category.php?title=$1
+RewriteRule ^post/([a-zA-Z0-9-]+) post.php?title=$1
+RewriteRule ^page/([a-zA-Z0-9-]+) static_page.php?title=$1
+
+# Forcing UTF-8
+# Forçando UTF-8
+<FilesMatch ".(htm|html|php|css|js)$">
+AddDefaultCharset UTF-8
+</FilesMatch>
+
+# Custom error page URLs
+# URLs de páginas de erro personalizadas
+ErrorDocument 400 http://localhost/allsites/errors/404.php
+ErrorDocument 401 http://localhost/allsites/errors/401.php
+ErrorDocument 403 http://localhost/allsites/errors/403.php
+ErrorDocument 404 http://localhost/allsites/errors/404.php
+ErrorDocument 500 http://localhost/allsites/errors/500.php
+
+# Protects the .htaccess file from external access
+# Protegendo o arquivo .htaccess de acesso externo
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+# Avoids directory listing
+# Evita a listagem de diretórios
+Options -Indexes
+
+

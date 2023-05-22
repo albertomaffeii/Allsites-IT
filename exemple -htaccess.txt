@@ -1,0 +1,52 @@
+RewriteEngine on
+
+# Redirect trailing slashes if not a folder...
+# Redirecionar barras à direita, se não for uma pasta...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} (.+)/$ 
+RewriteRule ^ %1 [L,R=301]
+
+# Remove the .html extension
+# Remove extenção html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html
+
+#Remove the .php extension
+# Remove extenção php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+# Protects the .htaccess file from external access
+# Protegendo o arquivo .htaccess de acesso externo
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+# Custom error page URLs
+# URLs de páginas de erro personalizadas	
+ErrorDocument 400 /errors/400.html
+ErrorDocument 401 /errors/401.html
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/403.html
+ErrorDocument 500 /errors/500.html
+
+# Avoids directory listing
+# Evita a listagem de diretórios
+Options -Indexes
+
+# Forcing UTF-8
+# Forçando UTF-8
+<FilesMatch ".(htm|html|php|css|js)$">
+AddDefaultCharset UTF-8
+</FilesMatch>
+
+# Securing the config file.php
+# Protegendo o arquivo config.php
+#<files config.php>
+#order allow,deny
+#deny from all
+#</files>
