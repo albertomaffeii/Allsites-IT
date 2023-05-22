@@ -19,7 +19,7 @@ require_once 'includes/header.php';
 						</div>
 						<div class="card-body">
 							<div class="col-md-12 fluid">
-								Logged in as <?php echo $_SESSION["auth_user"]['user_name']; ?> &nbsp;|&nbsp; Last access <?= date('d/m/Y \a\t H:i:s', strtotime($_SESSION['updated_at'])); ?> &nbsp;|&nbsp; <?= $_SESSION['mail']	; ?>
+								Logged in as <?php echo $_SESSION["auth_user"]['user_name']; ?> &nbsp;|&nbsp; Last access <?= date('d/m/Y \a\t H:i:s', strtotime($_SESSION['updated_at'])); ?> &nbsp;|&nbsp; <span class="float-end"><?= $_SESSION['mail']	; ?></span>
 							</div>
 						</div>
 					</div>	

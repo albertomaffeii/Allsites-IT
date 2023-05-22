@@ -3,7 +3,7 @@ require_once 'authentication.php';
 require_once 'classes/tools.php';
 $tool = new tools();
 
-// POSTS ---------------------------------------------------------------------------------------------------------------------------------------
+// POSTS ---------------------------------------------------------------------------------------------------------------
 // ADD Post
 if(isset($_POST['post_add'])):
 
@@ -110,9 +110,11 @@ if(isset($_POST['post_update'])):
 	$image_size			= $_POST['image_size'];
 	$language			= $_POST['language'];
 
-	// Tratando arquivos de imagem
+	// Handling image files
 	$update_filename ="";
 	$image = $_FILES['image']['name'];
+	echo"<pre>
+	var_dump($_POST);
 	
 	if(!empty($_FILES['image']['name'])):
 		

@@ -8,11 +8,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#portfolio">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#team">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= base_url('login'); ?>">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= base_url('register'); ?>">Register</a></li>
 				<li class="nav-item">

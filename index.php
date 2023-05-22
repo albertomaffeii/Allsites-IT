@@ -268,7 +268,9 @@ require_once 'includes/navbar.php';
                             </div>
                         </div>
                     </div>
-					<div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" name="submitButton" value="send" type="submit">Send Message</button></div>
+					<div class="text-center">
+                        <button class="btn btn-xl btn-warning text-uppercase" name="submitButton" value="send" type="submit">Send Message</button>
+                    </div>
                 </form>
             </div>
         </section>

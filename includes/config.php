@@ -3,10 +3,10 @@ session_start();
 // setar url nohtaccess
 $raiz = $_SERVER['DOCUMENT_ROOT'];
 
-require_once $raiz . '/allsites/admin/config/dbcon.php';
+require_once $raiz . '/Allsites-IT/admin/config/dbcon.php';
 
 function base_url($slug) {
-	return "http://localhost/allsites/" . $slug;
+	return "http://localhost/Allsites-IT/" . $slug;
 }
 
 // Select idioma

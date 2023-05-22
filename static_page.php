@@ -27,13 +27,10 @@ endif;
 require_once 'includes/header.php';
 require_once 'includes/navbar.php';
 ?>
-<p> </p>
 <div class="py-5">
     <div class="container">
         <div class="row">
-
-            <div class="col-md-9">
-				
+            <div class="col-md-9">				
 				<?php 
 				include('message.php'); 
 
@@ -47,7 +44,7 @@ require_once 'includes/navbar.php';
 
 							foreach($posts_run as $postItems) {
 								
-								//Salva 1 view para esta página
+								//Salva 1 view para esta pï¿½gina
 								if($_SESSION['tempoView'] <= date('h:i:s')):
 									$post_query_view_run = "UPDATE posts SET `views` = '" . $postItems['views'] + 1 . "' WHERE id = '" . $postItems['id'] . "'";
 									$mysqli -> query($post_query_view_run);
@@ -58,7 +55,7 @@ require_once 'includes/navbar.php';
 								endif;
 							?>
 
-<div class="card">
+				<div class="card">
 					<div class="card-header">
 						<h5><?= $postItems['name']; ?></h5>
 					</div>
