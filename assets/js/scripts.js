@@ -1,6 +1,7 @@
 <!--/*!
-  * Allsites Web Systems
-  * Copyright 2023 The Allsites Author: Alberto Maffei
+  * Allsites IT
+  * Copyright 2023 The Allsites 
+  * Author: Alberto Maffei
   */-->
 
 <script>

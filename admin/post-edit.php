@@ -19,7 +19,8 @@ require_once 'assets/js/scripts.js';
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             <strong> Edit Post</strong>
-							<a href="post-add.php" class="btn btn-danger float-end">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
+							<a href="post-add.php" class="btn btn-danger float-end">&nbsp;&nbsp; New Post &nbsp;&nbsp;</a><div class="float-end">&nbsp;&nbsp;</div>
+							<a href="Post-view.php" class="btn btn-danger float-end">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
                         </div>
                         <div class="card-body">
 
@@ -160,7 +161,7 @@ require_once 'assets/js/scripts.js';
 
 														<div class="card-body">
 
-															<div class="col-md-6 mb-3">
+															<div class="col-md-6 mb-6">
 																<label><strong>Status</strong></label>:&nbsp;&nbsp;&nbsp; 
 																	<input type="radio" id="status" name="status" <?= $post['status'] == 0 ? 'checked':'' ?> value="0">
 																	<label for="status2"> Visible</label>
