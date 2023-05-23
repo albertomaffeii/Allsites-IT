@@ -27,79 +27,75 @@ endif;
 require_once 'includes/header.php';
 require_once 'includes/navbar.php';
 ?>
-<div class="py-5">
+<div class="py-5 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">				
-				<?php 
+			<div style="height: 10vh"></div> 
+            <div class="col-md-9">	
+				<?php  
 				include('message.php'); 
 
 				if(isset($_GET['title'])):
 
 					$slug = $mysqli -> real_escape_string($_GET['title']);
 
-						$posts = "SELECT * FROM posts WHERE slug='$slug'";
-						$posts_run = $mysqli -> query($posts);						
-						if($mysqli -> affected_rows > 0):
+					$posts = "SELECT * FROM posts WHERE slug='$slug'";
+					$posts_run = $mysqli -> query($posts);						
+					if($mysqli -> affected_rows > 0):
 
-							foreach($posts_run as $postItems) {
+						foreach($posts_run as $postItems) {
+							
+							// Saves 1 view for this page
+							if($_SESSION['tempoView'] <= date('h:i:s')):
+								$post_query_view_run = "UPDATE posts SET `views` = '" . $postItems['views'] + 1 . "' WHERE id = '" . $postItems['id'] . "'";
+								$mysqli -> query($post_query_view_run);
 								
-								//Salva 1 view para esta p�gina
-								if($_SESSION['tempoView'] <= date('h:i:s')):
-									$post_query_view_run = "UPDATE posts SET `views` = '" . $postItems['views'] + 1 . "' WHERE id = '" . $postItems['id'] . "'";
-									$mysqli -> query($post_query_view_run);
-									
-									// Soma 1 Minutos
-									$now = date('H:i:s', strtotime('+30 seconds', strtotime(date('h:i:s'))));
-									$_SESSION['tempoView'] = $now ;
-								endif;
-							?>
+								// Soma 1 Minutos
+								$now = date('H:i:s', strtotime('+30 seconds', strtotime(date('h:i:s'))));
+								$_SESSION['tempoView'] = $now ;
+							endif;	?>
 
-				<div class="card">
-					<div class="card-header">
-						<h5><?= $postItems['name']; ?></h5>
-					</div>
-					<div class="card-box">
-								<div class="shadow-sm mb-4">
-									<div>
-										<h2><?= $postItems['name']; ?></h2>
-									</div>
-
-									<div>
-										<?php if($postItems['image'] != null): ?>
-											<img src="<?= base_url('libraries/posts/' . $postItems['image']); ?>" class="w-<?= $postItems['image_size']; ?>" alt="<?= $postItems['name']; ?>" hspace="<?= $postItems['image_size']=='100' ? '0' : '10'; ?>" align="left"?>
-											<?= $postItems['description']; ?>
-											<?php endif; ?>
-										</div>
-												
+							<div class="card">
+								<div class="card-header">
+									<h5><strong><?= $postItems['name']; ?></strong></h5>
 								</div>
+								<div class="card-body">
+									<div class="card-box">
+										<div class="shadow-sm mb-4">
+											<div>
+												<?php if($postItems['image'] != null): ?>
 
-							<?php
-							}
+													<img src="<?= base_url('libraries/posts/' . $postItems['image']); ?>" class="w-<?= $postItems['image_size']; ?>" alt="<?= $postItems['name']; ?>" hspace="<?= $postItems['image_size']=='100' ? '0' : '10'; ?>" vspace="<?= $postItems['image_size']=='100' ? '20' : '0'; ?>" align="left"?>
+													<?= $postItems['description'];
 
+												endif; ?>
+											</div>
+										</div>														
+									</div>
+								</div>
+							</div>
+						<?php }
 
-						else:
+					else:
 
-							echo "<h4>No such Post found.</h4>";
-
-						endif;
-				else:
-
-						echo "<h4>No such Category found.</h4>";
+						echo "<h4>No such Post found.</h4>";
 
 					endif;
+				else:
 
-				
+					echo "<h4>No such Category found.</h4>";
+
+				endif;			
 				?>
             </div>
 
-			<div class="col-md-3"><br><br>
+			<div class="col-md-3">
 				<div class="card">
 					<div class="card-header">
 						<h5>Advertise Area</h5>
 					</div>
-					<div class="card-box">
-						Your advertise
+					<div class="card-body">
+						<div class="card-box">Your advertise</div>
 					</div>
 				</div>
 			</div>

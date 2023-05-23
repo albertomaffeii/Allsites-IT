@@ -5,7 +5,7 @@ require_once 'includes/header.php';
 require_once 'includes/navbar.php';
 ?>
 
-<div class="py-5">
+<div class="py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

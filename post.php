@@ -33,7 +33,7 @@ endif;
 
 ?>
 
-<div class="py-5">
+<div class="py-5 bg-light">
     <div class="container">
         <div class="row">
 
@@ -52,7 +52,7 @@ endif;
 
 							foreach($posts_run as $postItems) {
 								
-								//Salva 1 view para esta p·gina
+								//Salva 1 view para esta p√°gina
 								if($_SESSION['tempoView'] <= date('h:i:s')):
 									$post_query_view_run = "UPDATE posts SET `views` = '" . $postItems['views'] + 1 . "' WHERE id = '" . $postItems['id'] . "'";
 									$mysqli -> query($post_query_view_run);

@@ -203,7 +203,7 @@ require_once 'includes/navbar.php';
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
+                            <img class="mx-auto rounded-circle" src="<?= base_url('libraries/images/stella.jpeg'); ?>" alt="..." />
                             <h4>Stella Maffei</h4>
                             <p class="text-muted">Lead Marketer</p>
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Stella Maffei Twitter Profile"><i class="fab fa-twitter"></i></a>
