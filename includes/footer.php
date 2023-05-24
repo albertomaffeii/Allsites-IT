@@ -1,13 +1,28 @@
-<div class="py-5 class="bg-secondary">
+<div class="py-5 bg-secondary">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-				<h3 class="text-white">ALLSITES IT</h3>
+        <div class="text-center">
+                <h2 class="section-heading text-uppercase"><?= $lang['footer_title'];?></h2>
+                <h3 class="section-subheading text-white"><?= $lang['footer_sub_title'];?></h3>
+            </div>
+
+            <div class="col-md-4">
+				<h3 class="text-white"><?= $lang['footer_col1_title'];?></h3>
 				<div class="underline"></div>
-					<div class="text-white"><a href="index" class="text-white">Home</a></div>
-					<div class="text-white"><a href="<?= base_url('category/about-us'); ?>" class="text-white">About Us</a></div>
-					<div class="text-white"><a href="page/contact-us" class="text-white">Contact Us</a></div>
-				</div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line01_link']); ?>" class="text-white"><?= $lang['footer_col1_line01'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line02_link']); ?>" class="text-white"><?= $lang['footer_col1_line02'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line03_link']); ?>" class="text-white"><?= $lang['footer_col1_line03'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line04_link']); ?>" class="text-white"><?= $lang['footer_col1_line04'];?></a></div>
+            </div>
+
+            <div class="col-md-4">
+				<h3 class="text-white"><?= $lang['footer_col2_title'];?></h3>
+				<div class="underline"></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line01_link']); ?>" class="text-white"><?= $lang['footer_col2_line01'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line02_link']); ?>" class="text-white"><?= $lang['footer_col2_line02'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line03_link']); ?>" class="text-white"><?= $lang['footer_col2_line03'];?></a></div>
+                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line04_link']); ?>" class="text-white"><?= $lang['footer_col2_line04'];?></a></div>
+            </div>
 
 				<div id="" class="col-md-4">
 					<h3>Contact Information</h3>

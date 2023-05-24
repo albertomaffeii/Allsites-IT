@@ -8,15 +8,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#services"><?= $lang['services']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#portfolio"><?= $lang['portfolio']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#blog"><?= $lang['blog']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#team"><?= $lang['team']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#contact"><?= $lang['contact']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('login');?>"><?= $lang['login']; ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= base_url('register');?>"><?= $lang['register']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#services"><?= $lang['navbar_services']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#portfolio"><?= $lang['navbar_portfolio']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#blog"><?= $lang['navbar_blog']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#team"><?= $lang['navbar_team']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('index');?>#contact"><?= $lang['navbar_contact']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('login');?>"><?= $lang['navbar_login']; ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('register');?>"><?= $lang['navbar_register']; ?></a></li>
 				<li class="nav-item">
-					<form method="get" name="languageForm" id="languageForm" action="index">
+					<form method="get" name="languageForm" id="languageForm" action="">
 						<select class="nav-item bg-dark text-white" name="lang" id="lang" onChange="document.getElementById('languageForm').submit();" >
 							<option value="en" <?= $_SESSION['lang'] == 'en' ? 'selected':''; ?> >EN</option>
 							<option value="it" <?= $_SESSION['lang'] == 'it' ? 'selected':''; ?> >IT</option>
