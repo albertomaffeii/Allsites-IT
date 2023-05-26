@@ -1,19 +1,19 @@
 <?php
-require_once 'includes/config.php';
+require_once'includes/config.php';
 
 $page_title = $lang['title'];
 $meta_description = "ALLSITES IT company that offers web systems development services, technical assistance, website hosting and personalized support.";
 $meta_keywords = "php, html, css, laravel, mysql, codeigniter, react, js";
 
-require_once 'includes/header.php';
-require_once 'includes/navbar.php';
+require_once (__ROOT__.'/includes/header.php');
+require_once (__ROOT__.'/includes/navbar.php');
 ?>
 			
 <!-- Masthead-->
 <header class="masthead">
 
 <!-- Bloco de message -->
-<?php require_once ('message.php'); ?>
+<?php require_once (__ROOT__.'/message.php'); ?>
 
     <div class="container">
         <div class="masthead-subheading"><?= $lang['carousel_line01'];?></div>
@@ -32,34 +32,38 @@ require_once 'includes/navbar.php';
                     <div class="container">
                         <div class="text-center">
                             <h2 class="section-heading text-uppercase"><?= $lang['navbar_services'];?></h2>
-                            <h3 class="section-subheading text-muted"><?= $lang['services_sub_title'];?></h3>
+                            <h3 class="section-subheading fs-5 text-muted"><?= $lang['services_sub_title'];?></h3>
                         </div>                        
                         <div class="row text-center">
-                        <?php // todos os serviços oferecidos pelo Allsites IT
-                        $homeCategory = "SELECT name, slug, description, icon FROM categories WHERE language='" . $_SESSION['language'] . "' AND navbar_status='0' AND status='0' ORDER BY navbar_position, name ASC LIMIT 12";
-                        $homeCategory_run = $mysqli -> query($homeCategory);
-                        $homeCategory_comp = $mysqli -> affected_rows;
 
-                        if($homeCategory_comp > 0 ):
-                                foreach ($homeCategory_run as $homeCateItems) { ?>
-                                    <div class="col-md-4">
-                                        <span class="fa-stack fa-4x">
-                                            <i class="fas fa-circle fa-stack-2x text-warning"></i>
-                                            <i class="fas <?= $homeCateItems['icon'];?> fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                        <h4 class="my-3">
-                                            <a class="text-decoration-none link-dark" href="<?= base_url('category/' . $homeCateItems['slug']) ?>">
-                                            <?= $homeCateItems['name'];?>
-                                            </a>
-                                        </h4>
-                                        <p class="text-muted"><?= $homeCateItems['description'];?></p>
-                                    </div>                        
-                                                
-                                <?php }
-                        endif;	?>
-                        <div class="text-center">
-                            <h3 class="section-subheading text-muted"><?= $lang['services_footer_text'];?></h3>
-                        </div> 
+                            <?php // todos os serviços oferecidos pelo Allsites IT
+                            $homeCategory = "SELECT name, slug, description, icon FROM categories WHERE language='" . $_SESSION['lang'] . "' AND navbar_status='0' AND status='0' ORDER BY navbar_position, name ASC LIMIT 12";
+                            $homeCategory_run = $mysqli -> query($homeCategory);
+                            $homeCategory_comp = $mysqli -> affected_rows;
+
+                            if($homeCategory_comp > 0 ):
+                                    foreach ($homeCategory_run as $homeCateItems) { ?>
+                                        <div class="col-md-4">
+                                            <span class="fa-stack fa-4x">
+                                                <i class="fas fa-circle fa-stack-2x text-warning"></i>
+                                                <i class="fas <?= $homeCateItems['icon'];?> fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                            <h4 class="my-3">
+                                                <a class="text-decoration-none link-dark" href="<?= base_url('category/' . $homeCateItems['slug']) ?>">
+                                                <?= $homeCateItems['name'];?>
+                                                </a>
+                                            </h4>
+                                            <p class="text-muted"><?= $homeCateItems['description'];?></p>
+                                        </div>                        
+                                                    
+                                    <?php }
+                            endif;	
+                            
+                            if (!empty($lang['services_footer_text'])): ?>
+                                <div class="text-center">
+                                    <h3 class="section-subheading fs-5 text-muted"><?= $lang['services_footer_text'];?></h3>
+                                </div>
+                            <?php endif ?> 
                 </section>
 				
 				<!-- Portfolio Grid-->
@@ -67,7 +71,7 @@ require_once 'includes/navbar.php';
 					<div class="container">
 						<div class="text-center">
                             <h2 class="section-heading text-uppercase"><?= $lang['navbar_portfolio'];?></h2>
-                            <h3 class="section-subheading text-muted"><?= $lang['portfolio_sub_title'];?></h3>
+                            <h3 class="section-subheading fs-5 text-muted"><?= $lang['portfolio_sub_title'];?></h3>
 						</div>
 						<div class="row">
 							<div class="col-lg-4 col-sm-6 mb-4">
@@ -117,9 +121,11 @@ require_once 'includes/navbar.php';
 								</div>
 							</div>
 						</div>
-                        <div class="text-center">
-                            <h3 class="section-subheading text-muted"><?= $lang['portfolio_footer_text'];?></h3>
-						</div>
+                        <?php if (!empty($lang['portfolio_footer_text'])): ?>
+                            <div class="text-center">
+                                <h3 class="section-subheading fs-5 text-muted"><?= $lang['portfolio_footer_text'];?></h3>
+                            </div>
+                        <?php endif ?> 
 					</div>
 				</section>
 				
@@ -128,14 +134,14 @@ require_once 'includes/navbar.php';
                     <div class="container">
                         <div class="text-center">
                             <h2 class="section-heading text-uppercase"><?= $lang['navbar_blog'];?></h2>
-                            <h3 class="section-subheading text-muted"><?= $lang['blog_sub_title'];?></h3>
+                            <h3 class="section-subheading fs-5 text-muted"><?= $lang['blog_sub_title'];?></h3>
                         </div>
                         <ul class="timeline">
                             <?php
                             // Blog do Allsites IT - A category_id do blog é = 10. Se mudar, tem que alterar a linha abaixo.
                             // Para aparecer na página inicial static_page = 1 
                             $homeBlog = "SELECT category_id, name, slug, small_description, image, last_update FROM posts 
-                                        WHERE category_id = '10' AND language='" . $_SESSION['language'] . "' AND static_page='1' AND status='0' 
+                                        WHERE category_id = '10' AND language='" . $_SESSION['lang'] . "' AND static_page='1' AND status='0' 
                                         ORDER BY last_update ASC LIMIT 5";
                             $homeBlog_run = $mysqli -> query($homeBlog);
                             $homeBlog_comp = $mysqli -> affected_rows;
@@ -190,7 +196,7 @@ require_once 'includes/navbar.php';
                     <div class="container">
                         <div class="text-center">
                             <h2 class="section-heading text-uppercase"><?= $lang['navbar_team'];?></h2>
-                            <h3 class="section-subheading text-muted"><?= $lang['team_sub_title'];?></h3>
+                            <h3 class="section-subheading fs-5 text-muted"><?= $lang['team_sub_title'];?></h3>
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
@@ -225,7 +231,7 @@ require_once 'includes/navbar.php';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"><?= $lang['team_footer_text'];?></p></div>
+                            <div class="col-lg-8 mx-auto text-center"><p class="large fs-5 text-muted"><?= $lang['team_footer_text'];?></p></div>
                         </div>
                     </div>
                 </section>
@@ -235,7 +241,7 @@ require_once 'includes/navbar.php';
                     <div class="container">
                         <div class="text-center">
                             <h2 class="section-heading text-uppercase"><?= $lang['navbar_contact'];?></h2>
-                            <h3 class="section-subheading text-white"><?= $lang['contact_sub_title'];?></h3>
+                            <h3 class="section-subheading fs-5 text-white"><?= $lang['contact_sub_title'];?></h3>
                         </div>
                         
                         <form id="contactForm" name="contactForm" method="POST" action="<?= base_url('includes/contact.php'); ?>">
@@ -258,10 +264,10 @@ require_once 'includes/navbar.php';
                                     <div class="form-group">
                                         <select class="form-control" name="subject" required>
                                             <option value="" selected="selected" disabled="disabled"><?= $lang['contact_select_text'];?></option>
-                                            <option value="contato">Contact</option>
-                                            <option value="vendas">Sales</option>
-                                            <option value="financeiro">Financial</option>
-                                            <option value="Informações">Information</option>
+                                            <option value="Informações"><?= $lang['contact_option01'];?></option>
+                                            <option value="Comercial"><?= $lang['contact_option02'];?></option>
+                                            <option value="Financeiro"><?= $lang['contact_option03'];?></option>
+                                            <option value="Outros assuntos"><?= $lang['contact_option04'];?></option>
                                         </select>
                                     </div>                            
                                     <div class="form-group">
@@ -274,7 +280,16 @@ require_once 'includes/navbar.php';
                                 <button class="btn btn-xl btn-warning text-uppercase" name="submitButton" value="send" type="submit">Send Message</button>
                             </div>
                         </form>
-                    </div>
+                    </div>                        
+                    <?php 
+                    if (!empty($lang['contact_footer_text'])): ?>
+                        <div style="height: 5vh"></div>
+                        <div class="text-center">
+                            <h3 class="section-subheading fs-6 text-white">
+                                <?= $lang['contact_footer_text'];?>
+                            </h3>
+                        </div>
+                    <?php endif; ?>
                 </section>
             </div>
         </div>

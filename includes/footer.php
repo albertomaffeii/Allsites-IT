@@ -1,37 +1,56 @@
 <div class="py-5 bg-secondary">
     <div class="container">
         <div class="row">
-        <div class="text-center">
+            <div class="text-center">
                 <h2 class="section-heading text-uppercase"><?= $lang['footer_title'];?></h2>
-                <h3 class="section-subheading text-white"><?= $lang['footer_sub_title'];?></h3>
+                <h3 class="section-subheading fs-5 text-white fs-5"><?= $lang['footer_sub_title'];?></h3>
+                <?php
+                if ($lang['footer_sub_title'] or $lang['footer_title']): ?>
+                    <div style="height: 4vh"></div>
+                <?php endif; ?>
             </div>
 
-            <div class="col-md-4">
+            <?php 
+            // Se o título e a primeira linha da coluna 2 estiverem false o footer é reconfigurdo para 2 colunas
+            if (empty($lang['footer_col2_title']) && empty($lang['footer_col2_line01'])): ?>
+                <div class='col-md-2'> </div>
+                <div class='col-md-6'>
+                <?php                
+            else:
+                echo"<div class='col-md-4'>";
+            endif; 
+            ?>           
 				<h3 class="text-white"><?= $lang['footer_col1_title'];?></h3>
 				<div class="underline"></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line01_link']); ?>" class="text-white"><?= $lang['footer_col1_line01'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line02_link']); ?>" class="text-white"><?= $lang['footer_col1_line02'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line03_link']); ?>" class="text-white"><?= $lang['footer_col1_line03'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col1_line04_link']); ?>" class="text-white"><?= $lang['footer_col1_line04'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line01_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line01'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line02_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line02'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line03_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line03'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line04_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line04'];?></a></div>
             </div>
+
+            <?php 
+            // Se o título e a primeira linha da coluna 2 estiverem true o footer é reconfigurdo para 3 colunas
+            if (!empty($lang['footer_col2_title']) && !empty($lang['footer_col2_line01'])): ?>
+
+                <div class="col-md-4">
+                    <h3 class="text-white"><?= $lang['footer_col2_title'];?></h3>
+                    <div class="underline"></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line01_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line01'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line02_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line02'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line03_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line03'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line04_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line04'];?></a></div>
+                </div>
+                
+            <?php endif; ?>
 
             <div class="col-md-4">
-				<h3 class="text-white"><?= $lang['footer_col2_title'];?></h3>
+				<h3 class="text-white"><?= $lang['footer_col3_title'];?></h3>
 				<div class="underline"></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line01_link']); ?>" class="text-white"><?= $lang['footer_col2_line01'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line02_link']); ?>" class="text-white"><?= $lang['footer_col2_line02'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line03_link']); ?>" class="text-white"><?= $lang['footer_col2_line03'];?></a></div>
-                <div class="text-white"><a href="<?= base_url($lang['footer_col2_line04_link']); ?>" class="text-white"><?= $lang['footer_col2_line04'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line01_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line01'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line02_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line02'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line03_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line03'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line04_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line04'];?></a></div>
             </div>
-
-				<div id="" class="col-md-4">
-					<h3>Contact Information</h3>
-					<div class="underline"></div>
-					<div class="text-white"><a href="http://www.allsites.it" class="text-white">allsites.it</a></div>
-					<div class="text-white"><a href="mailto:contact@allsites.it" class="text-white">contact@allsites.it</a></div>
-					<div class="text-white"><a href="tel:+39 329.463.6310" class="text-white text-decoration-none">+39 329.463.6310</a></div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -40,11 +59,11 @@
     <div class="container">
         <footer class="py-4 bg-light mt-auto container-fluid">
             <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-muted">Copyright &copy; allsites.com.br 2023 | <a href="support-and-help.php"  style="text-decoration: none;">Support & Help</a></div>
+                <div class="text-muted"><?= $lang['footer_copyrigh'];?> | <a href="<?= base_url($lang['footer_url_link']) ;?>"  style="text-decoration: none;"><?= $lang['footer_url'];?></a></div>
                 <div>
-                    <a href="privacy.php">Privacy Policy</a>
+                    <a href="<?= base_url('privacy.php'); ?>"><?= $lang['footer_privacy_policy'];?></a>
                     | 
-                    <a href="terms.php">Terms &amp; Conditions</a>
+                    <a href="<?= base_url('terms.php'); ?>"><?= $lang['footer_terms_conditions'];?></a>
                 </div>
             </div>
         </footer>

@@ -2,6 +2,7 @@
 session_start();
 // setar url no htaccess
 $raiz = $_SERVER['DOCUMENT_ROOT'];
+define('__ROOT__', dirname(dirname(__FILE__)));
 
 // Set o banco de dados
 require_once $raiz . '/Allsites-IT/admin/config/dbcon.php';
@@ -29,6 +30,8 @@ elseif (isset($_GET['lang']) && $_SESSION['lang'] != $_GET['lang'] && !empty($_G
 
 endif;
 
-require_once "./libraries/languages/" . $_SESSION['lang'] . ".php";
+// Caminho dos aruivos de idioma
+$varLang = "/libraries/languages/" . $_SESSION['lang'] . ".php";
+require_once (__ROOT__.$varLang);
 
 ?>
