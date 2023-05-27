@@ -22,10 +22,10 @@
             ?>           
 				<h3 class="text-white"><?= $lang['footer_col1_title'];?></h3>
 				<div class="underline"></div>
-                <div><a href="<?= base_url($lang['footer_col1_line01_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line01'];?></a></div>
-                <div><a href="<?= base_url($lang['footer_col1_line02_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line02'];?></a></div>
-                <div><a href="<?= base_url($lang['footer_col1_line03_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line03'];?></a></div>
-                <div><a href="<?= base_url($lang['footer_col1_line04_link']); ?>" class="text-white fs-6"><?= $lang['footer_col1_line04'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line01_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col1_line01'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line02_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col1_line02'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line03_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col1_line03'];?></a></div>
+                <div><a href="<?= base_url($lang['footer_col1_line04_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col1_line04'];?></a></div>
             </div>
 
             <?php 
@@ -35,10 +35,10 @@
                 <div class="col-md-4">
                     <h3 class="text-white"><?= $lang['footer_col2_title'];?></h3>
                     <div class="underline"></div>
-                    <div><a href="<?= base_url($lang['footer_col2_line01_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line01'];?></a></div>
-                    <div><a href="<?= base_url($lang['footer_col2_line02_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line02'];?></a></div>
-                    <div><a href="<?= base_url($lang['footer_col2_line03_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line03'];?></a></div>
-                    <div><a href="<?= base_url($lang['footer_col2_line04_link']); ?>" class="text-white fs-6"><?= $lang['footer_col2_line04'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line01_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col2_line01'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line02_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col2_line02'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line03_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col2_line03'];?></a></div>
+                    <div><a href="<?= base_url($lang['footer_col2_line04_link']); ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col2_line04'];?></a></div>
                 </div>
                 
             <?php endif; ?>
@@ -46,10 +46,10 @@
             <div class="col-md-4">
 				<h3 class="text-white"><?= $lang['footer_col3_title'];?></h3>
 				<div class="underline"></div>
-                <div><a href="<?= $lang['footer_col3_line01_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line01'];?></a></div>
-                <div><a href="<?= $lang['footer_col3_line02_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line02'];?></a></div>
-                <div><a href="<?= $lang['footer_col3_line03_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line03'];?></a></div>
-                <div><a href="<?= $lang['footer_col3_line04_link']; ?>" class="text-white fs-6"><?= $lang['footer_col3_line04'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line01_link']; ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col3_line01'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line02_link']; ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col3_line02'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line03_link']; ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col3_line03'];?></a></div>
+                <div><a href="<?= $lang['footer_col3_line04_link']; ?>" class="text-white fs-6 text-decoration-none"><?= $lang['footer_col3_line04'];?></a></div>
             </div>
 		</div>
 	</div>
@@ -61,9 +61,9 @@
             <div class="d-flex align-items-center justify-content-between small">
                 <div class="text-muted"><?= $lang['footer_copyrigh'];?> | <a href="<?= base_url($lang['footer_url_link']) ;?>"  style="text-decoration: none;"><?= $lang['footer_url'];?></a></div>
                 <div>
-                    <a href="<?= base_url('privacy.php'); ?>"><?= $lang['footer_privacy_policy'];?></a>
+                    <a href="<?= base_url('privacy.php'); ?>" class="text-decoration-none"><?= $lang['footer_privacy_policy'];?></a>
                     | 
-                    <a href="<?= base_url('terms.php'); ?>"><?= $lang['footer_terms_conditions'];?></a>
+                    <a href="<?= base_url('terms.php'); ?>" class="text-decoration-none"><?= $lang['footer_terms_conditions'];?></a>
                 </div>
             </div>
         </footer>

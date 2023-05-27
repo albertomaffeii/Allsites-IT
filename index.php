@@ -19,7 +19,7 @@ require_once (__ROOT__.'/includes/navbar.php');
         <div class="masthead-subheading"><?= $lang['carousel_line01'];?></div>
         <div class="masthead-subheading"><?= $lang['carousel_line02'];?></div>
         <div class="masthead-heading text-uppercase"><?= $lang['carousel_line03'];?></div>
-        <a class="btn btn-xxl btn-warning text-uppercase" href="#services"><?= $lang['carousel_button'];?></a>
+        <a class="btn btn-lg btn-warning text-uppercase" href="#services"><?= $lang['carousel_button'];?></a>
     </div>
 </header>
 
@@ -277,7 +277,7 @@ require_once (__ROOT__.'/includes/navbar.php');
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-xl btn-warning text-uppercase" name="submitButton" value="send" type="submit">Send Message</button>
+                                <button class="btn btn-lg btn-warning text-uppercase" name="submitButton" value="send" type="submit"><?= $lang['contact_button'];?></button>
                             </div>
                         </form>
                     </div>                        

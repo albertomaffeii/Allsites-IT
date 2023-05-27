@@ -117,8 +117,10 @@ $lang = array(
     "login_placeholder_email" => "name@example.com",
     "login_title_password" => "Password",
     "login_placeholder_password" => "Enter Password",
-    "" => "Remember Password",
-    "login_forgot_password" => "Forgot Password?"
+    "login_remember_password" => "Remember Password",
+    "login_forgot_password" => "Forgot Password?",
+    "login_button_text" => "Login Now",
+    "login_register_link" => "Need an account? Sign up!"
     
 
 );

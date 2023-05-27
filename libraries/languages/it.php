@@ -56,7 +56,7 @@ $lang = array(
     "contact_email_placeholder" => "Your Email *",
     "contact_phone_placeholder" => "Your Phone",
     "contact_message_placeholder" => "Your Message *",
-    "contact_select_text" => " -- Select an option -- ",
+    "contact_select_text" => " __ Select an option __ ",
     "contact_option01" => "Information",
     "contact_option02" => "Commercial and Sales department",
     "contact_option03" => "Financial",
@@ -75,9 +75,9 @@ $lang = array(
     "footer_col1_line01" => "Home",
     "footer_col1_line01_link" => "index",
     "footer_col1_line02" => "About Us",
-    "footer_col1_line02_link" => "category/about-us",
+    "footer_col1_line02_link" => "category/about_us",
     "footer_col1_line03" => "Contact Us",
-    "footer_col1_line03_link" => "page/contact-us",
+    "footer_col1_line03_link" => "page/contact_us",
     "footer_col1_line04" => "",
     "footer_col1_line04_link" => "",
     
@@ -104,9 +104,24 @@ $lang = array(
     "footer_col3_line04_link" => "Skype: allsites1",
     "footer_copyrigh" => "Copyright © allsites.it 2023",
     "footer_url" => "Support & Help",
-    "footer_url_link" => "support-and-help",
+    "footer_url_link" => "support_and_help",
     "footer_privacy_policy" => "Privacy Policy",
     "footer_terms_conditions" => "Terms & Conditions",
+
+    // Login
+    "login_page_title" => "Login page",
+    "login_meta_description" => "Login to access the Allsites IT Dashboard",
+    "login_meta_keywords" => "php, html, css, laravel, mysql, codeigniter, react, js",
+    "login_you_are_already_logged_in" => "You are already logged In!",
+    "login_title_email" => "E_mail address",
+    "login_placeholder_email" => "name@example.com",
+    "login_title_password" => "Password",
+    "login_placeholder_password" => "Enter Password",
+    "login_remember_password" => "Remember Password",
+    "login_forgot_password" => "Forgot Password?",
+    "login_button_text" => "Login Now",
+    "login_register_link" => "Need an account? Sign up!"
+    
 
 );
 
