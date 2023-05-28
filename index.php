@@ -138,8 +138,6 @@ require_once (__ROOT__.'/includes/navbar.php');
                         </div>
                         <ul class="timeline">
                             <?php
-                            // Blog do Allsites IT - A category_id do blog é = 10. Se mudar, tem que alterar a linha abaixo.
-                            // Para aparecer na página inicial static_page = 1 
                             $homeBlog = "SELECT category_id, name, slug, small_description, image, last_update FROM posts 
                                         WHERE category_id = '10' AND language='" . $_SESSION['lang'] . "' AND static_page='1' AND status='0' 
                                         ORDER BY last_update ASC LIMIT 5";

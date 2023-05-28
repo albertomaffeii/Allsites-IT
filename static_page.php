@@ -5,7 +5,7 @@ if(isset($_GET['title'])):
 
 	$slug = $mysqli -> real_escape_string($_GET['title']);
 
-	$posts = "SELECT slug, meta_title, meta_description, meta_keyword FROM posts WHERE slug='$slug' LIMIT 1";
+	$posts = "SELECT slug, name, meta_title, meta_description, meta_keyword FROM posts WHERE slug='$slug' LIMIT 1";
 	$posts_run = $mysqli -> query($posts);						
 	if($mysqli -> affected_rows > 0):
 
@@ -29,8 +29,13 @@ require_once 'includes/navbar.php';
 ?>
 <div class="py-5 bg-light">
     <div class="container">
-        <div class="row">
-			<div style="height: 10vh"></div> 
+        <div style="height: 8vh"></div>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="index"><?= $lang['navbar_home']; ?></a></li>
+            <li class="breadcrumb-item active"><?= $metaPostItem['name'];; ?></li>
+        </ol>
+
+		<div class="row">
             <div class="col-md-9">	
 				<?php  
 				include('message.php'); 
