@@ -30,7 +30,7 @@ require_once 'includes/navbar.php';
 						<div class="col-md-4">
 							<div class="card col-md-12">
 								<div class="card-header bg-white">
-									<center><img src="./libraries/images/light.gif"></center>
+									<center><img src="http://localhost/Allsites-IT/libraries/images/light.gif"></center>
 								</div>
 								<div class="card-body">
 									<div class="card-box">
@@ -55,7 +55,7 @@ require_once 'includes/navbar.php';
 											<li><code>MongoDB 3.2:</code> XXX </li>
 											<li><code>SQL Server:</code> XXX </li>
 										</ul>
-										<center><button>Quero este!</button></center>
+										<a href="register.php?job=light"><center><button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Quero este!</button></center></a>
 									</div>
 								</div>
 								<div class="card-footer"><center><span class="fs-1 text-danger">R$ 40,00</span><span class="fs-5 fw-semibold">/mês</span></center></div>
@@ -66,7 +66,7 @@ require_once 'includes/navbar.php';
 						<div class="col-md-4">
 							<div class="card col-md-12">
 								<div class="card-header bg-white">
-									<center><img src="./libraries/images/economico.gif"></center>
+									<center><img src="http://localhost/Allsites-IT/libraries/images/economico.gif"></center>
 								</div>
 								<div class="card-body">
 									<div class="card-box">
@@ -91,7 +91,7 @@ require_once 'includes/navbar.php';
 											<li><code>MongoDB 3.2:</code> XXX </li>
 											<li><code>SQL Server:</code> Consulte </li>
 										</ul>
-										<center><button>Quero este!</button></center>
+										<a href="register.php?job=economico"><center><button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Quero este!</button></center></a>
 									</div>
 								</div>
 								<div class="card-footer"><center><span class="fs-1 text-danger">R$ 45,00</span><span class="fs-5 fw-semibold">/mês</span></center></div>
@@ -102,7 +102,7 @@ require_once 'includes/navbar.php';
 						<div class="col-md-4">
 							<div class="card col-md-12">
 								<div class="card-header bg-white">
-									<center><img src="./libraries/images/plus.gif"></center>
+									<center><img src="http://localhost/Allsites-IT/libraries/images/plus.gif"></center>
 								</div>
 								<div class="card-body">
 									<div class="card-box">
@@ -127,7 +127,7 @@ require_once 'includes/navbar.php';
 											<li><code>MongoDB 3.2:</code> 1 banco de 2 GB</li>
 											<li><code>SQL Server:</code> Consulte </li>
 										</ul>
-										<center><button>Quero este!</button></center>
+										<a href="register.php?job=plus"><center><button type="button" class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Quero este!</button></center></a>
 									</div>
 								</div>
 								<div class="card-footer"><center><span class="fs-1 text-danger">R$ 130,00</span><span class="fs-5 fw-semibold">/mês</span></center></div>
