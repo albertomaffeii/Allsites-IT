@@ -171,10 +171,10 @@ require_once 'assets/js/scripts.js';
 																
 																<br />
 																<label for="status1"><strong>Static page:</strong></label>:&nbsp;&nbsp;&nbsp;
-																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 0 ? 'checked':'' ?> value="0">
+																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 1 ? 'checked':'' ?> value="0">
 																	<label for="status2"> No</label>
 																	&nbsp;&nbsp;&nbsp;&nbsp;
-																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 1 ? 'checked':'' ?> value="1">
+																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 0 ? 'checked':'' ?> value="1">
 																	<label for="status1"> Yes</label>
 
 																	<br />

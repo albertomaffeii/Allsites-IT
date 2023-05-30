@@ -75,9 +75,9 @@ $lang = array(
     "footer_col1_line01" => "Home",
     "footer_col1_line01_link" => "index",
     "footer_col1_line02" => "About Us",
-    "footer_col1_line02_link" => "category/about_us",
+    "footer_col1_line02_link" => "page/about-us",
     "footer_col1_line03" => "Contact Us",
-    "footer_col1_line03_link" => "page/contact_us",
+    "footer_col1_line03_link" => "page/contact-us",
     "footer_col1_line04" => "",
     "footer_col1_line04_link" => "",
     

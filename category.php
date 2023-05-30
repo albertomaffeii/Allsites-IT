@@ -35,9 +35,10 @@ require_once 'includes/navbar.php';
 require_once 'admin/classes/tools.php';
 ?>
 
-<div class="py-5">
+<div class="py-5 bg-light">
     <div class="container">
         <div class="row">
+			<div style="height: 12vh"></div>
             <div class="col-md-9">				
 				<?php 
 				include('message.php'); 
@@ -45,7 +46,7 @@ require_once 'admin/classes/tools.php';
 				if(isset($_GET['title'])):
 
 					$slug = $mysqli -> real_escape_string($_GET['title']);
-					$category = "SELECT id, slug FROM categories WHERE slug='$slug' AND status='0' LIMIT 1";
+					$category = "SELECT * FROM categories WHERE slug='$slug' AND status='0' LIMIT 1";
 					$category_run = $mysqli -> query($category);
 					if($mysqli -> affected_rows > 0):
 						
@@ -59,7 +60,7 @@ require_once 'admin/classes/tools.php';
 
 								if($postItems['static_page'] == 0):								
 									?>
-									<a href="<?= base_url('post/'. $postItems['slug']); ?>" class="text-decoration-none">
+									<a href="<?= base_url('post/'. $categoryItem['name'] . '/'. $postItems['slug']); ?>" class="text-decoration-none">
 										<div id="" class="card card-body shadow-sm mb-4">
 											<h5><?= $postItems['name']; ?></h5>
 											<div>

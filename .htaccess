@@ -19,7 +19,7 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 
 RewriteRule ^category/([a-zA-Z0-9-]+) category.php?title=$1
-RewriteRule ^post/([a-zA-Z0-9-]+) post.php?title=$1
+RewriteRule ^post/([a-zA-Z0-9-]+)/([a-zA-Z0-9-]+) post.php?category=$1&title=$2
 RewriteRule ^page/([a-zA-Z0-9-]+) static_page.php?title=$1
 
 # Forcing UTF-8
@@ -34,7 +34,7 @@ ErrorDocument 400 http://localhost/allsites-it/errors/404.php
 ErrorDocument 401 http://localhost/allsites-it/errors/401.php
 ErrorDocument 403 http://localhost/allsites-it/errors/403.php
 ErrorDocument 404 http://localhost/allsites-it/errors/404.php
-ErrorDocument 500 http://localhost/allsites-it/errors/500.php
+#ErrorDocument 500 http://localhost/allsites-it/errors/500.php
 
 # Protects the .htaccess file from external access
 # Protegendo o arquivo .htaccess de acesso externo

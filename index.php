@@ -133,14 +133,12 @@ require_once (__ROOT__.'/includes/navbar.php');
                 <section class="page-section" id="blog">
                     <div class="container">
                         <div class="text-center">
-                            <h2 class="section-heading text-uppercase"><?= $lang['navbar_blog'];?></h2>
+                            <h2 class="section-heading text-uppercase"><a href="category/blog"><?= $lang['navbar_blog'];?></a></h2>
                             <h3 class="section-subheading fs-5 text-muted"><?= $lang['blog_sub_title'];?></h3>
                         </div>
                         <ul class="timeline">
                             <?php
-                            $homeBlog = "SELECT category_id, name, slug, small_description, image, last_update FROM posts 
-                                        WHERE category_id = '10' AND language='" . $_SESSION['lang'] . "' AND static_page='1' AND status='0' 
-                                        ORDER BY last_update ASC LIMIT 5";
+                            $homeBlog = "SELECT category_id, name, slug, small_description, image, last_update FROM posts WHERE category_id = '10' AND language='" . $_SESSION['lang'] . "' AND static_page='1' AND status='0' ORDER BY last_update ASC LIMIT 5";
                             $homeBlog_run = $mysqli -> query($homeBlog);
                             $homeBlog_comp = $mysqli -> affected_rows;
                             if($homeBlog_comp > 0 ):
@@ -148,12 +146,16 @@ require_once (__ROOT__.'/includes/navbar.php');
                                     if ($blogPosition == 0):?>
                                         <li>
                                             <div class="timeline-image">
-                                                <img class="rounded-circle img-fluid" src="<?= base_url('libraries/posts/' . $homeBlogItems['image']); ?>" alt="..." />
+                                                <img class="rounded-circle img-fluid" src="<?= base_url('libraries/posts/' . $homeBlogItems['image']); ?>" />
                                             </div>
                                             <div class="timeline-panel">
                                                 <div class="timeline-heading">
-                                                    <h4 class="subheading"><?= $homeBlogItems['name'];?></h4>
-                                                    <p class="small">Posted on <?= date('d/m/Y', strtotime($homeBlogItems['last_update'])); ?></p>
+                                                    <h4 class="subheading">
+                                                        <a class="text-decoration-none link-dark" href="<?= base_url('page/' . $homeBlogItems['slug']) ?>">
+                                                            <?= $homeBlogItems['name'];?>
+                                                        </a>
+                                                    </h4>
+                                                    <!--<p class="small">Posted on <?//= date('d/m/Y', strtotime($homeBlogItems['last_update'])); ?></p> -->
                                                 </div>
                                                 <div class="timeline-body">
                                                     <p class="text-muted"><?= $homeBlogItems['small_description'];?></p>
@@ -166,11 +168,15 @@ require_once (__ROOT__.'/includes/navbar.php');
                                         $blogPosition = 0;
                                         ?>
                                         <li class="timeline-inverted">
-                                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                                            <div class="timeline-image"><img class="rounded-circle img-fluid" src="<?= base_url('libraries/posts/' . $homeBlogItems['image']); ?>" /></div>
                                             <div class="timeline-panel">
                                                 <div class="timeline-heading">
-                                                    <h4 class="subheading"><?= $homeBlogItems['name'];?></h4>
-                                                    <p class="small">Posted on <?= date('d/m/Y', strtotime($homeBlogItems['last_update'])); ?></p>
+                                                    <h4 class="subheading">
+                                                        <a class="text-decoration-none link-dark" href="<?= base_url('page/' . $homeBlogItems['slug']) ?>">
+                                                            <?= $homeBlogItems['name'];?>
+                                                        </a>
+                                                    </h4>
+                                                    <!-- <p class="small">Posted on <?//= date('d/m/Y', strtotime($homeBlogItems['last_update'])); ?></p>-->
                                                 </div>
                                                 <div class="timeline-body">
                                                     <p class="text-muted"><?= $homeBlogItems['small_description'];?></p>
