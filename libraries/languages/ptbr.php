@@ -1,7 +1,7 @@
 <?php
 $lang = array(
     
-    "title" => "ALLSITES IT en",
+    "title" => "ALLSITES IT ptbr",
     "navbar_home" => "Home",
     "navbar_services" => "Services",
     "navbar_portfolio" => "Potfolio",

@@ -36,14 +36,14 @@ endif;
     <div class="container">
         <div style="height: 8vh"></div>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a class="text-decoration-none" href="index"><?= $lang['navbar_home']; ?></a></li>
-            <li class="breadcrumb-item active"><?= $_GET['category']; ?></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="<?= base_url('index');?>"><?= $lang['navbar_home']; ?></a></li>
+            <li class="breadcrumb-item active"><a href="<?= base_url('category/'.$_GET['category']); ?>"><?= $_GET['category']; ?></a></li>
 			<li class="breadcrumb-item active"><?= $metaPostItem['name']; ?></li>
 
         </ol>
 
 		<div class="row">
-            <div class="col-md-9">	
+            <div class="col-md-12">	
 				<?php  
 				include('message.php'); 
 
@@ -108,7 +108,7 @@ endif;
 				?>
             </div>
 
-			<div class="col-md-3">
+			<!--<div class="col-md-3">
 				<div class="card">
 					<div class="card-header">
 						<h5>Advertise Area</h5>
@@ -117,7 +117,7 @@ endif;
 						<center>Your advertise</center>
 					</div>
 				</div>
-			</div>
+			</div>-->
         </div>
     </div>
     

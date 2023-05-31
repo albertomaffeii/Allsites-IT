@@ -36,7 +36,7 @@ require_once 'includes/navbar.php';
         </ol>
 
 		<div class="row">
-            <div class="col-md-9">	
+            <div class="col-md-12">	
 				<?php  
 				include('message.php'); 
 
@@ -94,7 +94,7 @@ require_once 'includes/navbar.php';
 				?>
             </div>
 
-			<div class="col-md-3">
+			<!--<div class="col-md-3">
 				<div class="card">
 					<div class="card-header">
 						<h5>Advertise Area</h5>
@@ -103,7 +103,7 @@ require_once 'includes/navbar.php';
 						<div class="card-box">Your advertise</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
         </div>
     </div>
     
