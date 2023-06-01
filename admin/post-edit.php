@@ -77,7 +77,7 @@ require_once 'assets/js/scripts.js';
 												</div>
 												<div class="col-md-12 mb-3">
 													<label for=""><strong>Small Description</strong></label>
-													<textarea required name="small_description" id="small_description" class="form-control" rows="2" cols="30" /><?php echo htmlentities($post['small_description']); ?></textarea>
+													<textarea name="small_description" id="small_description" class="form-control" rows="2" cols="30" /><?php echo htmlentities($post['small_description']); ?></textarea>
 												</div>
 												<div class="col-md-12 mb-3">
 													<label><strong>Description</strong></label>
@@ -118,7 +118,7 @@ require_once 'assets/js/scripts.js';
 															?>
 															</div>
 
-															<div class="col-md-10">
+															<div class="col-md-12">
 																<label><strong>Size image on text <?= $post['image_size']; ?></strong></label>
 																<br>
 																<input type="radio" id="image_size" name="image_size" <?= $post['image_size'] == 25 ? 'checked':'' ?> value="25">
@@ -161,51 +161,68 @@ require_once 'assets/js/scripts.js';
 
 														<div class="card-body">
 
-															<div class="col-md-6 mb-6">
-																<label><strong>Status</strong></label>:&nbsp;&nbsp;&nbsp; 
+															<div class="col-md-12 mb-6 row">
+
+																<div class="col-md-3 mb-6">
+																	<label for=""><strong>Language:</strong></label>
+																</div>
+																<div class="col-md-9 mb-6">
+																	<select class="form-control" name="language" id="language" >
+																		<option value="en" <?= $post['language'] == 'en' ? 'selected':''; ?> >English</option>
+																		<option value="it" <?= $post['language'] == 'it' ? 'selected':''; ?> >Italiano</option>
+																		<option value="ptbr" <?= $post['language'] == 'ptbr' ? 'selected':''; ?> >Brazilian Portuguese</option>
+																	</select>
+																</div>	
+
+																<div class="col-md-3 mb-6">
+																	<label><strong>Status</strong></label>:&nbsp;&nbsp;&nbsp;
+																</div>
+																 <div class="col-md-9 mb-6">
 																	<input type="radio" id="status" name="status" <?= $post['status'] == 0 ? 'checked':'' ?> value="0">
 																	<label for="status2"> Visible</label>
 																	&nbsp;&nbsp;&nbsp;&nbsp;
 																	<input type="radio" id="status" name="status" <?= $post['status'] == 1 ? 'checked':'' ?> value="1">
 																	<label for="status1"> Hidden</label>
-																
-																<br />
-																<label for="status1"><strong>Static page:</strong></label>:&nbsp;&nbsp;&nbsp;
+																</div>
+
+																<div class="col-md-3 mb-6">
+																	<label for="status1"><strong>Static page</strong></label>:&nbsp;&nbsp;&nbsp;
+																</div>
+																<div class="col-md-9 mb-6">
 																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 1 ? 'checked':'' ?> value="0">
 																	<label for="status2"> No</label>
 																	&nbsp;&nbsp;&nbsp;&nbsp;
 																	<input type="radio" id="static_page" name="static_page" <?= $post['static_page'] == 0 ? 'checked':'' ?> value="1">
 																	<label for="status1"> Yes</label>
+																</div>
 
-																	<br />
-																	<label for=""><strong>Language:</strong></label>
-																	<select class="form-control" name="language" id="language" >
-																		<option value="en" <?= $post['language'] == 'en' ? 'selected':''; ?> >English</option>
-																		<option value="it" <?= $post['language'] == 'it' ? 'selected':''; ?> >Italiano</option>
-																		<option value="ptbr" <?= $post['language'] == 'ptbr' ? 'selected':''; ?> >Port. do Brazil</option>
-																	</select
-																	<br/>																	
-
-																	<label><strong>Views: </strong></label>
+																<div class="col-md-3 mb-6">
+																	<label for=""><strong>Views: </strong></label>
+																</div>
+																<div class="col-md-9 mb-6">
 																	<?php echo $post['views']; ?>
-																	<br/><br/>
-											
-																
-																<label><strong>Create at: </strong></label>
-																<!-- https://www.php.net/manual/en/datetime.format -->
-																<?php 
-																//Forat data
-																$lang = 'd/m/Y \a\t H:i:s';
-																
-																$date = date_create($post['created_at']);
-																echo date_format($date, $lang);
-																?>
-																<br /><br />
-																<label><strong>Last update: </strong></label>
-																<?php 
+																</div>
 
-																$date = date_create($post['last_update']);
-																echo date_format($date, $lang); ?>
+																<div class="col-md-3 mb-6">
+																	<label><strong>Last update: </strong></label>
+																</div>
+																<div class="col-md-9 mb-6">
+																	<?php
+																	//Format data
+																	$lang = 'd/m/Y \a\t H:i:s';
+																	$date = date_create($post['last_update']);
+																	echo date_format($date, $lang); ?>
+																</div>
+
+																<div class="col-md-3 mb-6">
+																	<label><strong>Create at: </strong></label>
+																</div>
+																<div class="col-md-9 mb-6">
+																	<?php
+																	$date = date_create($post['created_at']);
+																	echo date_format($date, $lang);
+																	?>
+																</div>
 															</div>
 														</div>
 

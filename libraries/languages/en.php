@@ -120,7 +120,28 @@ $lang = array(
     "login_remember_password" => "Remember Password",
     "login_forgot_password" => "Forgot Password?",
     "login_button_text" => "Login Now",
-    "login_register_link" => "Need an account? Sign up!"
+    "login_register_link" => "Need an account? Sign up!",
+
+    // Register
+    "register_page_title" => "Create Account",
+    "register_page_subtitle" => "Create a user for access the Allsites IT Dashboard",
+    "register_meta_description" => "Create account to access the Allsites IT Dashboard",
+    "register_meta_keywords" => "php, html, css, laravel, mysql, codeigniter, react, js",
+    "register_title_name" => "Name",
+    "register_first_name" => "First name",
+    "register_last_name" => "Last name",
+    "register_email_address" => "E-mail address",
+    "register_username" => "Username",
+    "register_password" => "Create a Password",
+    "register_confirm_password" => "Confirm Password",
+    "register_button_text" => "Create Account",
+    "register_footer_link" => "Have an account? Go to login",
+    "email_already_exists" => "Email Already Exists",
+    "user_already_exists" => "User Already Exists.",
+    "registered_succefully" => "New user created successfully.",
+    "something_wrong" => "Something Wrong!",
+    "password_not_match" => "Password and Confirm Password dos not match."
+
     
 
 );

@@ -11,6 +11,10 @@ require_once 'includes/header.php';
 	<div class="py-2">
 		<div class="container">
 			<div class="col-md-12">
+	
+				<!-- Bloco de message -->
+				<?php include('message.php'); ?>
+				
 				<div class="col-md-12 mb-3">
 					<div class="card">
 						<div class="card-header">

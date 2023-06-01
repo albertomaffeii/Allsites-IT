@@ -13,24 +13,24 @@ if (isset($_POST['register_btn'])):
     $password =  $mysqli -> real_escape_string($_POST['inputPassword']);
     $cpassword =  $mysqli -> real_escape_string($_POST['inputPasswordConfirm']);
     
-    //VERIFICA SE AS SENHAS DIGITADAS SÃO IGIUAIS
+    //VERIFICA SE AS SENHAS DIGITADAS SÃ£o IGUAIS
 	if($password == $cpassword):
 
-		//VERIFICA SE O EMAIL INFORMADO JÁ EXISTE
+		//VERIFICA SE O EMAIL INFORMADO JÃ¡ EXISTE
         $checkEmail = "SELECT email FROM users WHERE email = '$email'";
         $checkMail_run = $mysqli -> query($checkEmail);
 		$checkMail_comp = $mysqli -> affected_rows;
 
 		if($checkMail_comp > 0):
 
-			//Already Email Exists
-			$_SESSION['message'] = "E-mail Already Exists.";
+			// Email Already Exists
+			$_SESSION['message'] = $lang['email_already_exists'];
 			header("Location: register.php");
 			exit(0);
 
 		endif;
 
-		//VERIFICA SE O USUÁRIO INFORMADO JÁ EXISTE
+		//VERIFICA SE O USUÃ¡RIO INFORMADO JÃ¡ EXISTE
         $checkUser = "SELECT username FROM users WHERE username = '$uname'";
         $checkUser_run = $mysqli -> query($checkUser);
 		$checkUser_comp = $mysqli -> affected_rows;
@@ -38,7 +38,7 @@ if (isset($_POST['register_btn'])):
 		if($checkUser_comp > 0):
 
             //User Already Exists
-            $_SESSION['message'] = "User Already Exists.";
+            $_SESSION['message'] = $lang['user_already_exists'];
             header("Location: register.php");
             exit(0);
 
@@ -49,7 +49,7 @@ if (isset($_POST['register_btn'])):
 			if ($mysqli -> query($user_query) === TRUE):
 
 				//Registered Succefully
-				$_SESSION['message'] = "New record created successfully.";
+				$_SESSION['message'] = $lang['registered_succefully'];
 				header("Location: login.php");
 				exit(0);
 
@@ -57,7 +57,7 @@ if (isset($_POST['register_btn'])):
 
 				//Something Wrong
 				echo "Error: <br>" . $user_query . "<br>" . $conn->error;
-				$_SESSION['message'] = "<p>Something Wrong!</p>" . "Error: <br>" . $user_query . "<br>" . $conn->error;
+				$_SESSION['message'] = "<p>" . $lang['something_wrong'] . "</p>" . "Error: <br>" . $user_query . "<br>" . $conn->error;
                 header("Location: register.php");
                 exit(0);
 
@@ -66,8 +66,8 @@ if (isset($_POST['register_btn'])):
         endif;
 
     else:
-
-        $_SESSION['message'] = "Password and Confirm Password dos not match";
+        // Password not match
+        $_SESSION['message'] = $lang['password_not_match'];
         header("Location: register.php");
         exit(0);
 
