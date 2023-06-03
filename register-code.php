@@ -5,6 +5,10 @@ require_once'admin/config/dbcon.php';
 
 if (isset($_POST['register_btn'])):
 
+    // Serviço ou Plano selecionado
+    $job = $_GET['job'];
+    echo $job;
+    
 	// Escape special characters, if any
     $fname = $mysqli -> real_escape_string($_POST['inputFirstName']);
     $lname = $mysqli -> real_escape_string($_POST['inputLastName']);

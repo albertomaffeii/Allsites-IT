@@ -39,7 +39,7 @@ if (isset($_POST['login_btn'])):
 		$lastUserVisit = "UPDATE `allsites`.`users` SET `updated_at` = '" . $now . "' WHERE (`id` = '" . $user_id . "')";
 		$lastUserVisit_run = $mysqli -> query($lastUserVisit);
 		
-		//NÍVEIS DE ACESSO
+		//NÃ­VEIS DE ACESSO
 		if($_SESSION['auth_role'] >= '1'): //1 = admin, 2 = superadmin
 
 			$_SESSION['message'] = "Welcome to dashboard";
@@ -49,7 +49,7 @@ if (isset($_POST['login_btn'])):
 		elseif($_SESSION['auth_role'] == '0'): //0 = user
 			
 			$_SESSION['message'] = "You are logged in";
-			header("Location: index.php");
+			header("Location: painel/index.php");
 			exit(0);
 
 		endif;
