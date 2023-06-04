@@ -47,10 +47,21 @@ if (isset($_POST['register_btn'])):
             exit(0);
 
         else:
+            $varMessage = "<strong><span class='bg-alert'>Clique em My Data e preencha o cadastro de Cliente para ativar os serviços</span></strong>";
 
-			$user_query = "INSERT INTO users (fname, lname, username, email, password) VALUES ('$fname', '$lname', '$uname', '$email', '$password')";
+			$user_query = "INSERT INTO users (fname, lname, username, email, password, mail) VALUES ('$fname', '$lname', '$uname', '$email', '$password', '$varMessage')";            
 
 			if ($mysqli -> query($user_query) === TRUE):
+
+                $idUserSessao = mysqli_insert_id($mysqli);
+
+                $customers_query = "INSERT INTO customers (user_id, email1) VALUES ('$idUserSessao','$email')";
+                $mysqli -> query($customer_query);
+
+                $idCustomerSessao = mysqli_insert_id($mysqli);
+
+                $services_query = "INSERT INTO services (customer_id, service) VALUES ('$idCustomerSessao','$job')";
+                $mysqli -> query($services_query);
 
 				//Registered Succefully
 				$_SESSION['message'] = $lang['registered_succefully'];

@@ -10,13 +10,14 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-               
-                <?php //if($_SESSION['auth_role'] == '2') : ?>
-				<a class="nav-link <?= $page == 'register-view.php' || $page == 'register-add.php' || $page == 'register-edit.php' ? 'active':'' ?>" href="register-view.php">
+                <a class="nav-link <?= $page == 'register-edit.php' ? 'active':'' ?>" href="register-edit.php?code=<?php echo $tool->base64url_encode($_SESSION['auth_user']['user_id']); ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                    Registerd Users
+                    My User
                 </a>
-				<?php //endif; ?>
+                <a class="nav-link <?= $page == 'customer-edit.php' ? 'active':'' ?>" href="customer-edit.php?code=<?php echo $tool->base64url_encode($_SESSION['auth_user']['user_id']); ?>">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    My Data
+                </a>
 
 				<div class="sb-sidenav-menu-heading">Interface</div>
 

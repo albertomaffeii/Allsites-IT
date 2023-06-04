@@ -266,44 +266,6 @@ endif;
 // ----------------------------------------------------------------------------------------------------------
 // USERS
 // ----------------------------------------------------------------------------------------------------------
-// ADD User
-if(isset($_POST['AddUser'])):
-
-    $fname		= $mysqli -> real_escape_string($_POST['fname']);
-    $lname		= $mysqli -> real_escape_string($_POST['lname']);
-    $uname		= $mysqli -> real_escape_string($_POST['uname']);
-    $email		= $_POST['email'];
-    $password	= $mysqli -> real_escape_string($_POST['password']);
-    $role_as	= $_POST['role_as'];
-	$status		= $_POST['status'];
-    
-    $user_query_run = "INSERT INTO `allsites`.`users` (`fname`, `lname`, `username`, `email`, `password`, `role_as`, `status`) VALUES ('$fname', '$lname', '$uname', '$email', '$password', 'role_as', 'status')";
-	
-	$mysqli -> query($user_query_run);
-		
-	//Registered Succefully
-	$_SESSION['message'] = "User Added Successfully.";
-	header("Location: register-view.php");
-	exit(0);
-	
-endif;
-
-//DELETE User
-if(isset($_POST['user_delete'])):
-
-	$user_id = $_POST['user_delete'];
-    
-    $user_query_run = "DELETE FROM `allsites`.`users` WHERE (`id` = '" . $user_id . "')";
-
-	$mysqli -> query($user_query_run);
-		
-	//Registered Succefully
-	$_SESSION['message'] = "User Deleted Successfully.";
-	header("Location: register-view.php");
-	exit(0);
-	
-endif;
-
 //UPDATE User
 if(isset($_POST['UpdateUser'])):
 
@@ -322,17 +284,55 @@ if(isset($_POST['UpdateUser'])):
 		
 		//Registered Succefully
 		$_SESSION['message'] = "Updated Successfully.";
-		header("Location: register-view.php");
+		header("Location: register-edit.php");
 		exit(0);
 
 	else:
 		
 		//Registered faillury
 		$_SESSION['message'] = "Update failed, check the entered data.";
-		header("Location: register-view.php");
+		header("Location: register-edit.php");
 		exit(0);
 
 	endif;
+endif;
+
+// ----------------------------------------------------------------------------------------------------------
+// CUSTOMERS
+// ----------------------------------------------------------------------------------------------------------
+//UPDATE Customer
+if(isset($_POST['UpdateCustomer'])):
+
+	$customer_id= $_POST['customer_id'];
+    $name		= $mysqli -> real_escape_string($_POST['name']);
+    $address	= $mysqli -> real_escape_string($_POST['address']);
+    $city		= $mysqli -> real_escape_string($_POST['city']);
+    $regiao		= $_POST['regiao'];
+    $state		= $mysqli -> real_escape_string($_POST['state']);
+    $tax_code1	= $_POST['tax_code1'];
+	$tax_code2	= $_POST['tax_code2'];
+	$phone1		= $_POST['phone1'];
+	$phone2		= $_POST['phone2'];
+	$email1		= $_POST['email1'];
+	$email2		= $_POST['email2'];
+    
+    $customer_query_run = "UPDATE `customers` SET `name` = '$name', `address` = '$address', `city` = '$city', `regiao` = '$regiao', `state` = '$state', `tax_code1` = '$tax_code1', `tax_code2` = '$tax_code2', `phone1` = '$phone1', `phone2` = '$phone2', `email1` = '$email1', `email2` = '$email2' WHERE (`customer_id` = '$customer_id')";
+	
+	if ($mysqli -> query($customer_query_run) === TRUE):
+		
+		//Registered Succefully
+		$_SESSION['message'] = "Updated Successfully.";		
+
+	else:
+		
+		//Registered faillury
+		$_SESSION['message'] = "Update failed, check the entered data.";
+
+	endif;
+
+	$var_msg = "customer-edit.php?code=" . $tool->base64url_encode($_SESSION['auth_user']['user_id']);
+	header("Location: $var_msg");
+	exit(0);
 
 endif;
 

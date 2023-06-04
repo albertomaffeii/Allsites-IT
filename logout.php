@@ -17,12 +17,12 @@ require_once 'includes/header.php';
 require_once 'includes/navbar.php';
 ?>
 
-<div class="container">
+<div class="container bg-light">
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
         <li class="breadcrumb-item active">Logout</li>
     </ol>
-	
+	<div style="height: 10vh"></div> 
 	<div id="layoutError">
 		<div id="layoutError_content">
 			<main>
