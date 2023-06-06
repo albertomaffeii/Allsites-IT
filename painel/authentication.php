@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config/dbcon.php';
+require_once '../admin/config/dbcon.php';
 
 if(!isset($_SESSION['auth']) != 0):
 	

@@ -54,7 +54,7 @@ require_once 'includes/header.php';
 													<th><center>Static page</center></th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
-													<th>Painel de controle</th>
+													<th>Painel de<br>controle</th>
 												</tr>
 										</thead>
 										<tfoot>
@@ -66,7 +66,7 @@ require_once 'includes/header.php';
 													<th><center>Static page</center></th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
-													<th>Painel de controle</th>
+													<th>Painel de<br>controle</th>
 												</tr>
 										</tfoot>
 										<tbody>
@@ -87,7 +87,7 @@ require_once 'includes/header.php';
 														<th><center><?=$row['status'] == '1' ? 'Active':'Inactive';?></center></th>
 														<th>
 															<center>
-																<a href="post-edit.php?code=<?php echo $tool->base64url_encode($row['id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
+																<a href="service-edit.php?code=<?php echo $tool->base64url_encode($row['id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
 															</center>
 														</th>
 														<th><a href="http://painel.allsites.com.br" target="blank" class="btn btn-success">Access</a></th>

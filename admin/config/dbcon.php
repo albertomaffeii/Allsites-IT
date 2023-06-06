@@ -30,6 +30,7 @@ if (mysqli_connect_errno()) {
 */
 
 $mysqli = new mysqli($host, $username, $password, $database, $port);
+$mysqli -> set_charset('utf8');
 
 // Check connection
 if ($mysqli -> connect_errno) {
