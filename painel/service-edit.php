@@ -8,8 +8,8 @@ require_once 'assets/js/scripts.js';
 
             <ol class="breadcrumb mb-2">
                 <li class="breadcrumb-item active"><a href="index.php">Dashboard</a></li>
-                <li class="breadcrumb-item active"><a href="service-view.php">Products & Serviçes</a></li>
-                <li class="breadcrumb-item active">Edit Posts</li>
+                <li class="breadcrumb-item active">Products & Serviçes</li>
+                <li class="breadcrumb-item active">Edit</li>
             </ol>
 
             <div class="row">
@@ -17,8 +17,8 @@ require_once 'assets/js/scripts.js';
                     <div class="card">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            <strong> Edit Post</strong>
-							<a href="Post-view.php" class="btn btn-danger float-end">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
+                            <strong> Products & Serviçes</strong>
+							<a href="index.php" class="btn btn-danger float-end">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
                         </div>
                         <div class="card-body">
 
