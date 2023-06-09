@@ -317,6 +317,20 @@ if(isset($_POST['UpdateCustomer'])):
 	$email2		= $_POST['email2'];
     
     $customer_query_run = "UPDATE `customers` SET `name` = '$name', `address` = '$address', `city` = '$city', `regiao` = '$regiao', `state` = '$state', `tax_code1` = '$tax_code1', `tax_code2` = '$tax_code2', `phone1` = '$phone1', `phone2` = '$phone2', `email1` = '$email1', `email2` = '$email2' WHERE (`customer_id` = '$customer_id')";
+
+	// ----------------------------------------------------------------------------------------------------------
+// SERVICES
+// ----------------------------------------------------------------------------------------------------------
+//UPDATE Services
+if(isset($_POST['UpdateCustomer'])):
+
+	$customer_id= $_POST['customer_id'];
+
+ 	$phone2		= $_POST['phone2'];
+	$email1		= $_POST['email1'];
+	$email2		= $_POST['email2'];
+    
+    $customer_query_run = "UPDATE `customers` SET `name` = '$name', `address` = '$address', `city` = '$city', `regiao` = '$regiao', `state` = '$state', `tax_code1` = '$tax_code1', `tax_code2` = '$tax_code2', `phone1` = '$phone1', `phone2` = '$phone2', `email1` = '$email1', `email2` = '$email2' WHERE (`customer_id` = '$customer_id')";
 	
 	if ($mysqli -> query($customer_query_run) === TRUE):
 		
