@@ -1,8 +1,4 @@
-<!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-info">  fundo azul claro tipo corn flower blue --> 
-<!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-body-secondary"> cinza com letras em branco -->
-<!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success"> verde -->
-<!-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark"> -->
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.php">Allsites IT</a>
     <!-- Sidebar Toggle-->

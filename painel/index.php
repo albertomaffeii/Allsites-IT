@@ -51,7 +51,6 @@ require_once 'includes/header.php';
 													<th>Category</th>
 													<th>Service</th>
 													<th><center>Domain</center></th>
-													<th><center>Static page</center></th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
 													<th>Painel de<br>controle</th>
@@ -63,7 +62,6 @@ require_once 'includes/header.php';
 													<th>Category</th>
 													<th>Service</th>
 													<th><center>Domain</center></th>
-													<th><center>Static page</center></th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
 													<th>Painel de<br>controle</th>
@@ -83,11 +81,10 @@ require_once 'includes/header.php';
 														<th><?=$row['service']; ?></th>
 														<th><?=$row['plan']; ?></th>
 														<th><span class="fw-bold"><?=$row['domain']; ?></span></th>
-														<th><center><?=$row['static_page'] == '0' ? 'No':'Yes';?></center></th>
 														<th><center><?=$row['status'] == '1' ? 'Active':'Inactive';?></center></th>
 														<th>
 															<center>
-																<a href="service-edit.php?code=<?php echo $tool->base64url_encode($row['service_id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
+																<a href="<?= strtolower($row['service']); ?>-edit.php?code=<?php echo $tool->base64url_encode($row['service_id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
 															</center>
 														</th>
 														<th><a href="http://painel.allsites.com.br" target="blank" class="btn btn-success">Access</a></th>

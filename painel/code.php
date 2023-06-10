@@ -317,25 +317,11 @@ if(isset($_POST['UpdateCustomer'])):
 	$email2		= $_POST['email2'];
     
     $customer_query_run = "UPDATE `customers` SET `name` = '$name', `address` = '$address', `city` = '$city', `regiao` = '$regiao', `state` = '$state', `tax_code1` = '$tax_code1', `tax_code2` = '$tax_code2', `phone1` = '$phone1', `phone2` = '$phone2', `email1` = '$email1', `email2` = '$email2' WHERE (`customer_id` = '$customer_id')";
-
-	// ----------------------------------------------------------------------------------------------------------
-// SERVICES
-// ----------------------------------------------------------------------------------------------------------
-//UPDATE Services
-if(isset($_POST['UpdateCustomer'])):
-
-	$customer_id= $_POST['customer_id'];
-
- 	$phone2		= $_POST['phone2'];
-	$email1		= $_POST['email1'];
-	$email2		= $_POST['email2'];
-    
-    $customer_query_run = "UPDATE `customers` SET `name` = '$name', `address` = '$address', `city` = '$city', `regiao` = '$regiao', `state` = '$state', `tax_code1` = '$tax_code1', `tax_code2` = '$tax_code2', `phone1` = '$phone1', `phone2` = '$phone2', `email1` = '$email1', `email2` = '$email2' WHERE (`customer_id` = '$customer_id')";
 	
 	if ($mysqli -> query($customer_query_run) === TRUE):
 		
 		//Registered Succefully
-		$_SESSION['message'] = "Updated Successfully.";		
+		$_SESSION['message'] = "Customer Updated Successfully.";		
 
 	else:
 		
@@ -345,6 +331,63 @@ if(isset($_POST['UpdateCustomer'])):
 	endif;
 
 	$var_msg = "customer-edit.php?code=" . $tool->base64url_encode($_SESSION['auth_user']['user_id']);
+	header("Location: $var_msg");
+	exit(0);
+
+endif;
+
+// ----------------------------------------------------------------------------------------------------------
+// SERVICES
+// ----------------------------------------------------------------------------------------------------------
+//UPDATE Hosting
+if(isset($_POST['hosting_update'])):
+
+	$domainInfo			= $_POST['domainInfo'];
+ 	$status 			= $_POST['status'];
+	$billingFrequency	= $_POST['billingFrequency'];
+    
+    $service_query_run = "UPDATE `services` SET `status` = '$status', `frequency` = '$billingFrequency' WHERE (`domain` = '$domainInfo')";
+	
+	if ($mysqli -> query($service_query_run) === TRUE):
+		
+		//Registered Succefully
+		$_SESSION['message'] = "Service Updated Successfully.";		
+
+	else:
+		
+		//Registered faillury
+		$_SESSION['message'] = "Update failed, check the entered data.";
+
+	endif;
+
+	$var_msg = "index.php?code=" . $tool->base64url_encode($_SESSION['auth_user']['user_id']);
+	header("Location: $var_msg");
+	exit(0);
+
+endif;
+
+// ----------------------------------------------------------------------------------------------------------
+//UPDATE Email
+if(isset($_POST['email_update'])):
+
+	$service_id	= $_POST['service_id'];
+ 	$quantity 	= $_POST['quantity'];
+    
+    $service_query_run = "UPDATE `services` SET `quantity` = '$quantity' WHERE (`service_id` = '$service_id')";
+	
+	if ($mysqli -> query($service_query_run) === TRUE):
+		
+		//Registered Succefully
+		$_SESSION['message'] = "Extra Email Space Service Updated Successfully.";		
+
+	else:
+		
+		//Registered faillury
+		$_SESSION['message'] = "Update failed, check the entered data.";
+
+	endif;
+
+	$var_msg = "index.php?code=" . $tool->base64url_encode($_SESSION['auth_user']['user_id']);
 	header("Location: $var_msg");
 	exit(0);
 

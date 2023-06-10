@@ -146,7 +146,7 @@ require_once 'assets/js/scripts.js';
 										<input type="reset" class="btn btn-warning" value="&nbsp;&nbsp;Reset&nbsp;&nbsp;">
 										<a href=""></a>
 										&nbsp;&nbsp;&nbsp;&nbsp;
-										<a href="Post-view.php" class="btn btn-danger">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
+										<a href="post-view.php" class="btn btn-danger">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>
 										
 										<input type="submit" class="btn btn-primary float-end" id="post_add" name="post_add" value="Save Post">
 									</div>

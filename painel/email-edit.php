@@ -33,41 +33,50 @@ require_once 'assets/js/scripts.js';
 								if($mysqli -> affected_rows > 0):
 									$service = $services_query_res -> fetch_array(MYSQLI_ASSOC); ?>
 									<div class="container">
-										<form action="code.php" method="POST" class="form-control" enctype="multipart/form-data">
+										<form action="code.php" method="POST" class="form-control">
 											<input type="hidden" id="service_id" name="service_id" value="<?=$tool->base64url_decode($_GET['code']); ?>" />
 
 											<div class="row">
-												<div class="col-md-3" style="background-color: #f8f9fa; height: 20vh;">
+												<div class="col-md-4" style="background-color: #f8f9fa; height: 20vh;">
 													<!-- Conteúdo do primeiro div -->
 													<label for="typeOfService" class="form-label"><strong>Type of Service</strong>: <?=$service['service'];?></label><br>
 													<label for="domain" class="form-label"><strong>Domain</strong>: <?=$service['domain'];?></strong></label><br>
 													<label for="createDateDetail" class="form-label"><strong>Hosting Plan</strong>: <?=$service['plan'];?></strong></label><br>
 													<label for="createDateDetail" class="form-label"><strong>Create Date</strong>: <?=$service['created_at'];?></strong></label>	
 												</div>
-												<div class="col-md-9">
+												<div class="col-md-8">
 													<div class="row">
-														<div class="col" style="height: 10vh;">
+														<div class="col-md-4" style="height: 10vh;">
 															<!-- Conteúdo do segundo div -->
 															<label for="status" class="form-label"><strong>Status</strong>:</label>
-															<select class="form-select" id="status" required>
+															<select class="form-select" id="status" name="status" required>
 																<option value="">Select status</option>
 																<option value="1" <?= $service['status'] == '1' ? 'selected':''; ?> >ACTIVE</option>
 																<option value="0" <?= $service['status'] == '0' ? 'selected':''; ?> >INACTIVE</option>
 															</select>
 														</div>
 													</div>
+													<style>
+														.counter-container {
+															display: flex;
+															align-items: center;
+															gap: 10px;
+															margin-bottom: 20px;
+														}
+													</style>
 													<div class="row">
 														<div class="col" style="height: 10vh;">
 															<!-- Conteúdo do terceiro div -->
 															<label for="cobranca" class="form-label"><strong>Billing frequency</strong>:</label>
-															<select class="form-select" id="billingFrequency" name="billingFrequency" required>
-																<option value="">Select billing frequency</option>
-																<option value="1" <?= $service['frequency'] == '1' ? 'selected':''; ?> >Monthly</option>
-																<option value="2" <?= $service['frequency'] == '2' ? 'selected':''; ?> >Bimonthly</option>
-																<option value="3" <?= $service['frequency'] == '3' ? 'selected':''; ?> >Quarterly</option>
-																<option value="6" <?= $service['frequency'] == '6' ? 'selected':''; ?> >Semiannually</option>
-																<option value="12" <?= $service['frequency'] == '12' ? 'selected':''; ?> >Annually</option>
-															</select>
+
+                                                                <div class="container row col-md-4">
+                                                                    <div class="counter-container">
+                                                                        <a href="#" class="btn btn-outline-danger" id="decrease">  -  </a>
+                                                                        <input type="number" class="form-control" id="quantity" name="quantity" value="<?=$service['quantity'];?>" min="0" max="99">
+                                                                        <a href="#" class="btn btn-outline-info" id="increase">  +  </a>
+                                                                    </div>
+                                                                </div>
+															
 														</div>
 													</div>
 												</div>
@@ -78,7 +87,7 @@ require_once 'assets/js/scripts.js';
 													<input type="reset" class="btn btn-warning" value="&nbsp;&nbsp;Reset&nbsp;&nbsp;">
 													&nbsp;&nbsp;&nbsp;&nbsp;
 													<a href="index.php" class="btn btn-danger">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-													<input type="submit" class="btn btn-primary" id="service_update" name="service_update" value="Update Post">
+													<input type="submit" class="btn btn-primary" id="email_update" name="email_update" value="Update Service">
 												</div>
 											</div>
 										</form>
@@ -91,7 +100,25 @@ require_once 'assets/js/scripts.js';
             </div>
         </div>
 
+        <script>
+            document.getElementById('increase').addEventListener('click', function() {
+                var quantityField = document.getElementById('quantity');
+                var currentQuantity = parseInt(quantityField.value);
+                var incrementedQuantity = currentQuantity + 1;
+                if (incrementedQuantity <= 99) {
+                quantityField.value = incrementedQuantity;
+                }
+            });
 
+            document.getElementById('decrease').addEventListener('click', function() {
+                var quantityField = document.getElementById('quantity');
+                var currentQuantity = parseInt(quantityField.value);
+                var decrementedQuantity = currentQuantity - 1;
+                if (decrementedQuantity >= 0) {
+                quantityField.value = decrementedQuantity;
+                }
+            });
+        </script>
 
 
 <?php
