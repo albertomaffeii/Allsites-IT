@@ -366,6 +366,36 @@ if(isset($_POST['hosting_update'])):
 
 endif;
 
+//ADD Hosting
+if(isset($_POST['hosting_add'])):
+
+	$customer_id		= $_POST['customer_id'];
+	$service			= $_POST['service'];
+	$hostingPlan		= $_POST['hostingPlan'];
+	$domainInfo			= $_POST['domainInfo'];
+	$server				= $_POST['server'];
+	$billingFrequency	= $_POST['billingFrequency'];
+    
+    $service_query_run = "INSERT INTO `allsites`.`services` (`customer_id`, `service`, `plan`, `domain`, `server`, `quantity`, `status`, `frequency`) VALUES ('$customer_id', '$service', '$hostingPlan', '$domainInfo', '$server', '0', '0', '$billingFrequency')";
+	
+	if ($mysqli -> query($service_query_run) === TRUE):
+		
+		//Registered Succefully
+		$_SESSION['message'] = "Service Created Successfully.";		
+
+	else:
+		
+		//Registered faillury
+		$_SESSION['message'] = "Create failed, check the entered data.";
+
+	endif;
+
+	$var_msg = "index.php?code=" . $tool->base64url_encode($_SESSION['auth_user']['user_id']);
+	header("Location: $var_msg");
+	exit(0);
+
+endif;
+
 // ----------------------------------------------------------------------------------------------------------
 //UPDATE Email
 if(isset($_POST['email_update'])):

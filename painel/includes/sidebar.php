@@ -21,20 +21,20 @@
 
 				<div class="sb-sidenav-menu-heading">Additional services</div>
 
-				<a class="nav-link collapsed <?= $page == 'category-add.php' || $page == 'category-view.php' || $page == 'category-edit.php' ? 'active':''; ?>" href="category-add.php"" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+				<a class="nav-link collapsed <?= $page == 'hosting-add.php' || $page == 'email-add.php' || $page == 'disk-add.php' || $page == 'certificate-add.php' || $page == 'sql-add.php' || $page == 'mapping-add.php' || $page == 'cronjob-add.php' ? 'active':''; ?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Add Services
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <div class="collapse <?= $page == 'email-add.php' || $page == 'disk-add.php' || $page == 'certificate-add.php' || $page == 'sql-add.php' || $page == 'mapping-add.php' || $page == 'cronjob-add.php' ? 'show':''; ?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <div class="collapse <?= $page == 'hosting-add.php' || $page == 'email-add.php' || $page == 'disk-add.php' || $page == 'certificate-add.php' || $page == 'sql-add.php' || $page == 'mapping-add.php' || $page == 'cronjob-add.php' ? 'show':''; ?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link <?= $page == 'email-add.php' ? 'active':''; ?>" href="email-add.php">New domais hosting</a>
-                    <a class="nav-link <?= $page == 'email-add.php' ? 'active':''; ?>" href="email-add.php">Extra Email Space</a>
-                        <a class="nav-link <?= $page == 'disk-add.php' || $page == 'category-edit.php' ? 'active':''; ?>" href="disk-add.php">Extra Disk Space</a>
-                        <a class="nav-link <?= $page == 'certificate-add' || $page == 'category-edit.php' ? 'active':''; ?>" href="certificate-add.php">SSL Certificate</a>
-                        <a class="nav-link <?= $page == 'sql-add.php' || $page == 'category-edit.php' ? 'active':''; ?>" href="sql-add.php">SQL Server</a>
-                        <a class="nav-link <?= $page == 'mapping-add.php' || $page == 'category-edit.php' ? 'active':''; ?>" href="mapping-add.php">Mapping</a>
-                        <a class="nav-link <?= $page == 'cronjob-add.php' || $page == 'category-edit.php' ? 'active':''; ?>" href="cronjob-add.php">Cronjob</a>
+                        <a class="nav-link <?= $page == 'hosting-add.php' ? 'active':''; ?>" href="hosting-add.php">New domais hosting</a>
+                        <a class="nav-link <?= $page == 'email-add.php' ? 'active':''; ?>" href="email-add.php">Extra Email Space</a>
+                        <a class="nav-link <?= $page == 'disk-add.php' ? 'active':''; ?>" href="disk-add.php">Extra Disk Space</a>
+                        <a class="nav-link <?= $page == 'certificate-add' ? 'active':''; ?>" href="certificate-add.php">SSL Certificate</a>
+                        <a class="nav-link <?= $page == 'sql-add.php' ? 'active':''; ?>" href="sql-add.php">SQL Server</a>
+                        <a class="nav-link <?= $page == 'mapping-add.php' ? 'active':''; ?>" href="mapping-add.php">Mapping</a>
+                        <a class="nav-link <?= $page == 'cronjob-add.php' ? 'active':''; ?>" href="cronjob-add.php">Cronjob</a>
                     </nav>
                 </div>
 

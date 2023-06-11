@@ -50,10 +50,10 @@ require_once 'includes/header.php';
 													<th>Ord</th>
 													<th>Category</th>
 													<th>Service</th>
-													<th><center>Domain</center></th>
+													<th>Domain</th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
-													<th>Painel de<br>controle</th>
+													<th><center>Painel de<br>controle</center></th>
 												</tr>
 										</thead>
 										<tfoot>
@@ -61,15 +61,15 @@ require_once 'includes/header.php';
 													<th>Ord</th>
 													<th>Category</th>
 													<th>Service</th>
-													<th><center>Domain</center></th>
+													<th>Domain</th>
 													<th><center>Status</center></th>
 													<th><center>Edit</center></th>
-													<th>Painel de<br>controle</th>
+													<th><center>Painel de<br>controle</center></th>
 												</tr>
 										</tfoot>
 										<tbody>
 										<?php
-											$ServicesQuery = "SELECT * FROM services WHERE customer_id='2'";
+											$ServicesQuery = "SELECT * FROM services WHERE customer_id='2' ORDER BY domain ASC";
 											$ServicesQuery_run = $mysqli -> query($ServicesQuery);
 											$ServicesQuery_comp = $mysqli -> affected_rows;
 											if($ServicesQuery_comp > 0 ):
@@ -79,7 +79,7 @@ require_once 'includes/header.php';
 													<tr>
 														<th><?= str_pad($x, 3, 0, STR_PAD_LEFT);?></th>
 														<th><?=$row['service']; ?></th>
-														<th><?=$row['plan']; ?></th>
+														<th><?php echo $row['server'] . " " . $row['plan']; ?></th>
 														<th><span class="fw-bold"><?=$row['domain']; ?></span></th>
 														<th><center><?=$row['status'] == '1' ? 'Active':'Inactive';?></center></th>
 														<th>
@@ -87,7 +87,7 @@ require_once 'includes/header.php';
 																<a href="<?= strtolower($row['service']); ?>-edit.php?code=<?php echo $tool->base64url_encode($row['service_id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
 															</center>
 														</th>
-														<th><a href="http://painel.allsites.com.br" target="blank" class="btn btn-success">Access</a></th>
+														<th><center><a href="http://painel.allsites.com.br" target="blank" class="btn btn-success">Access</a></center></th>
 																									
 													</tr>
 												<?php    
