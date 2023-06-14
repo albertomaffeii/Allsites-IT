@@ -41,7 +41,7 @@ require_once 'assets/js/scripts.js';
 													<!-- Conteúdo do primeiro div -->
 													<label for="typeOfService" class="form-label"><strong>Type of Service</strong>: <?=$service['service'];?></label><br>
 													<label for="domain" class="form-label"><strong>Domain</strong>: <?=$service['domain'];?></strong></label><br>
-													<label for="createDateDetail" class="form-label"><strong>Hosting Plan</strong>: <?=$service['plan'];?></strong></label><br>
+													<label for="createDateDetail" class="form-label"><strong>Addicional service</strong>: <?=$service['plan'];?></strong></label><br>
 													<label for="createDateDetail" class="form-label"><strong>Create Date</strong>: <?=$service['created_at'];?></strong></label>	
 												</div>
 												<div class="col-md-8">
@@ -67,7 +67,7 @@ require_once 'assets/js/scripts.js';
 													<div class="row">
 														<div class="col" style="height: 10vh;">
 															<!-- Conteúdo do terceiro div -->
-															<label for="cobranca" class="form-label"><strong>Billing frequency</strong>:</label>
+															<label for="cobranca" class="form-label"><strong>Number of 1GB packages to be added</strong>:</label>
 
                                                                 <div class="container row col-md-4">
                                                                     <div class="counter-container">

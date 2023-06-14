@@ -423,4 +423,57 @@ if(isset($_POST['email_update'])):
 
 endif;
 
+// ----------------------------------------------------------------------------------------------------------
+//ADD Extra Email Space
+if(isset($_POST['extraEmailUpdate'])):
+
+	$customer_id		= $_POST['customer_id'];
+ 	$quantity 			= $_POST['quantity'];
+	$service			= $_POST['service'];
+	$hostingPlan		= $_POST['hostingPlan'];
+	$domainInfo			= $_POST['domainInfo'];
+	$server				= $_POST['server'];
+	$billingFrequency	= $_POST['billingFrequency'];
+
+	$serviceVerify = "SELECT * FROM `allsites`.`services` WHERE customer_id='" .  $_SESSION['auth_user']["user_id"] . "' AND service='Email' AND domain='$domainInfo'  LIMIT 1";
+	$serviceVerify_run = $mysqli -> query($serviceVerify);
+	$serviceVerify_comp = $mysqli -> affected_rows;
+	if($serviceVerify_comp == 0 ):
+	
+		$service_query_run = "INSERT INTO `allsites`.`services` (`customer_id`, `service`, `plan`, `domain`, `server`, `quantity`, `status`, `frequency`) VALUES ('$customer_id', 'Email', 'Extra Email Space', '$domainInfo', 'POP, IMAP, SMTP', '$quantity', '0', '$billingFrequency')";
+
+		if ($mysqli -> query($service_query_run) === TRUE):
+			
+			//Registered Succefully
+			$_SESSION['message'] = "Service Created Successfully.";		
+
+		else:
+			
+			//Registered faillury
+			$_SESSION['message'] = "Create failed, check the entered data.";
+
+		endif;
+
+	else:
+
+		//Registered faillury ?>
+		<div class="container">
+			<h1>Informações do Pacote de Serviço</h1>
+			<p>Este pacote de serviço está ativo para este domínio.</p>
+			<p>Para obter mais espaço de e-mail, clique no botão "Editar" abaixo do serviço "Espaço Extra de E-mail.</p>
+			<a href="email-edit.php?code=<?php echo $tool->base64url_encode($row['service_id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
+
+		</div>
+	<php
+	endif;
+endif;
+
 ?>
+
+
+<script>
+document.getElementById('editService').addEventListener('click', function() {
+	// Aqui você pode adicionar o código para redirecionar o usuário para a página de edição do serviço "Espaço Extra de E-mail"
+	alert("Redirecionando para a página de edição do serviço...");
+});
+</script>

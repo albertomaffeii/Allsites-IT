@@ -69,7 +69,7 @@ require_once 'includes/header.php';
 										</tfoot>
 										<tbody>
 										<?php
-											$ServicesQuery = "SELECT * FROM services WHERE customer_id='2' ORDER BY domain ASC";
+											$ServicesQuery = "SELECT * FROM services WHERE customer_id='" .  $_SESSION['auth_user']["user_id"] . "' ORDER BY domain ASC";
 											$ServicesQuery_run = $mysqli -> query($ServicesQuery);
 											$ServicesQuery_comp = $mysqli -> affected_rows;
 											if($ServicesQuery_comp > 0 ):

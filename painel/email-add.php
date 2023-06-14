@@ -24,28 +24,34 @@ require_once 'assets/js/scripts.js';
                         <div class="card-body">
                             <div class="container">
                                 <form action="code.php" method="POST" class="form-control">
-                                    <input type="text" id="customer_id" name="customer_id" value="<?=$tool->base64url_decode($_GET['code']); ?>" />
+                                    
+									<input type="hidden" id="customer_id" name="customer_id" value="<?= $_SESSION['auth_user']["user_id"]; ?>" />
 
+									<div class="row">
+										<div class="col-md-6" style="background-color: #f8f9fa; height: 20vh;">
+											<!-- Conteúdo do primeiro div -->
+											<label for="typeOfService" class="form-label"><strong>Type of Service</strong>: Extra Email Space</label><br>
+											<label for="domain" class="form-label"><strong>Select the domain in which the service will be configured</strong>: 
+											<select class="form-select" id="domainInfo" name="domainInfo" required>
+												<option value="">Select a domain</option>
+
+												<?php												
+												$services_query_res = $mysqli -> query("SELECT * FROM services WHERE service='Hosting' AND customer_id = '" . $_SESSION['auth_user']["user_id"] . "' ORDER BY domain ASC");
+												if($mysqli -> affected_rows > 0):
+													foreach ($services_query_res as $row) {
+													?>
+														<option value="<?= $row['domain']; ?>"><?= $row['domain']; ?></option>
+													<?php
+													}
+												else:
+													echo"<option value=''>No domains found for this customer</option>";
+												endif; ?>
+											</select>
+										</div>
+										<div class="col-md-6">
 											<div class="row">
-												<div class="col-md-4" style="background-color: #f8f9fa; height: 20vh;">
-													<!-- Conteúdo do primeiro div -->
-													<label for="typeOfService" class="form-label"><strong>Type of Service</strong>: <?=$service['service'];?></label><br>
-													<label for="domain" class="form-label"><strong>Domain</strong>: <?=$service['domain'];?></strong></label><br>
-													<label for="createDateDetail" class="form-label"><strong>Hosting Plan</strong>: <?=$service['plan'];?></strong></label><br>
-													<label for="createDateDetail" class="form-label"><strong>Create Date</strong>: <?=$service['created_at'];?></strong></label>	
-												</div>
-												<div class="col-md-8">
-													<div class="row">
-														<div class="col-md-4" style="height: 10vh;">
-															<!-- Conteúdo do segundo div -->
-															<label for="status" class="form-label"><strong>Status</strong>:</label>
-															<select class="form-select" id="status" name="status" required>
-																<option value="">Select status</option>
-																<option value="1" <?= $service['status'] == '1' ? 'selected':''; ?> >ACTIVE</option>
-																<option value="0" <?= $service['status'] == '0' ? 'selected':''; ?> >INACTIVE</option>
-															</select>
-														</div>
-													</div>
+												<div class="col-md-12" style="height: 20vh;">
+													
 													<style>
 														.counter-container {
 															display: flex;
@@ -54,37 +60,32 @@ require_once 'assets/js/scripts.js';
 															margin-bottom: 20px;
 														}
 													</style>
-													<div class="row">
-														<div class="col" style="height: 10vh;">
-															<!-- Conteúdo do terceiro div -->
-															<label for="cobranca" class="form-label"><strong>Billing frequency</strong>:</label>
+													
+													<label for="cobranca" class="form-label"><strong>Number of 1GB packages to be added:</strong>:</label>
 
-                                                                <div class="container row col-md-4">
-                                                                    <div class="counter-container">
-                                                                        <a href="#" class="btn btn-outline-danger" id="decrease">  -  </a>
-                                                                        <input type="number" class="form-control" id="quantity" name="quantity" value="<?=$service['quantity'];?>" min="0" max="99">
-                                                                        <a href="#" class="btn btn-outline-info" id="increase">  +  </a>
-                                                                    </div>
-                                                                </div>
-															
+													<div class="container row col-md-6">
+														<div class="counter-container">
+															<a href="#" class="btn btn-outline-danger" id="decrease">  -  </a>
+															<input type="number" class="form-control" id="quantity" name="quantity" value="0" min="0" max="99" required>
+															<a href="#" class="btn btn-outline-info" id="increase">  +  </a>
 														</div>
 													</div>
+													<a href="../page/hospedagem-de-sites" target="_blank">Click here to find out what each plan offers</a>
 												</div>
 											</div>
-											<div style="height: 1vh"></div>
-											<div> 											
-												<div class="col-md-6 mb-3">
-													<input type="reset" class="btn btn-warning" value="&nbsp;&nbsp;Reset&nbsp;&nbsp;">
-													&nbsp;&nbsp;&nbsp;&nbsp;
-													<a href="index.php" class="btn btn-danger">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
-													<input type="submit" class="btn btn-primary" id="email_update" name="email_update" value="Update Service">
-												</div>
-											</div>
-										</form>
-									<?php 
-								endif;
-							endif; ?>
-                        </div>
+										</div>
+									</div>
+									<div style="height: 1vh"></div>
+									<div> 											
+										<div class="col-md-6 mb-3">
+											<input type="reset" class="btn btn-warning" value="&nbsp;&nbsp;Reset&nbsp;&nbsp;">
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<a href="index.php" class="btn btn-danger">&nbsp;&nbsp; Back &nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+											<input type="submit" class="btn btn-primary" id="extraEmailUpdate" name="extraEmailUpdate" value="Update Service">
+										</div>
+									</div>
+								</form>
+							</div>
                     </div>  
                 </div>
             </div>
