@@ -460,7 +460,7 @@ if(isset($_POST['extraEmailUpdate'])):
 		<div class="container">
 			<h1>Informações do Pacote de Serviço</h1>
 			<p>Este pacote de serviço está ativo para este domínio.</p>
-			<p>Para obter mais espaço de e-mail, clique no botão "Editar" abaixo do serviço "Espaço Extra de E-mail.</p>
+			<p>Para obter mais espaço para e-mails, clique no botão "Editar" abaixo do serviço "Espaço Extra de E-mail.</p>
 			<a href="email-edit.php?code=<?php echo $tool->base64url_encode($row['service_id']); ?>" class="btn btn-success">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
 
 		</div>
